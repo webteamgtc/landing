@@ -37,7 +37,7 @@ const BannerWithFeatureBar = () => {
                 role="button"
                 aria-label={feature.front}
               >
-                <span className="absolute inset-0 flex items-center text-lg justify-center transition-opacity duration-300 group-hover:opacity-0">
+                <span className="absolute inset-0 flex items-center text-sm md:text-lg justify-center transition-opacity duration-300 group-hover:opacity-0">
                   {feature.front}
                 </span>
                 <span className="absolute w-52 mx-auto inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-3 text-base md:px-5">
