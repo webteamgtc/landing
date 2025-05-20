@@ -1,5 +1,7 @@
 import React from 'react'
 import GoldBanner from '../components/GoldTrade/GoldBanner';
+import BannerWithFeatureBar from '../components/GoldTrade/BannerWithFeatureBar';
+import GoldOpportunitySection from '../components/GoldTrade/GoldOpportunitySection';
 
 export const metadata = {
   title: "Trade Gold with Tight Spreads & Fast Execution | GTC",
@@ -10,6 +12,8 @@ const page = () => {
   return (
     <>
     <GoldBanner />
+    <BannerWithFeatureBar />
+    <GoldOpportunitySection />
     </>
   )
 }
