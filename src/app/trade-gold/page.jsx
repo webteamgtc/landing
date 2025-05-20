@@ -7,6 +7,9 @@ import GoldFeatureStrip from '../components/GoldTrade/GoldFeatureStrip';
 import GoldTrustSection from '../components/GoldTrade/GoldTrustSection';
 import TradeGoldFeatures from '../components/GoldTrade/TradeGoldFeatures';
 import GoldContentHighlights from '../components/GoldTrade/GoldContentHighlights';
+import GoldMarketEdge from '../components/GoldTrade/GoldMarketEdge';
+import TradeTrust from '../components/GoldTrade/TradeTrust';
+import Footer from '../components/Footer';
 
 export const metadata = {
   title: "Trade Gold with Tight Spreads & Fast Execution | GTC",
@@ -24,6 +27,9 @@ const page = () => {
     <GoldTrustSection />
     <GoldContentHighlights />
     <TradeGoldFeatures />
+    <TradeTrust />
+    <GoldMarketEdge />
+    <Footer />
     </>
   )
 }
