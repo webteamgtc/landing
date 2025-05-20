@@ -23,7 +23,7 @@ const GoldFeatureStrip = () => {
     ];
 
     return (
-        <div className="bg-white pt-10 px-4 relative">
+        <div className="bg-white pt-6 px-4 relative">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0 min-h-44 shadow-2xl rounded-2xl bg-[#f2f2f2] border border-[#ccc] mt-[-80px] md:-mt-28 z-10 relative border-opacity-10">
                     {features.map((item, index) => (
