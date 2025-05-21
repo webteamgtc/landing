@@ -1,10 +1,9 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const ThankYouPage = () => {
-    const searchParams = useSearchParams();
     const router = useRouter();
 
     const [user, setUser] = useState(null);
