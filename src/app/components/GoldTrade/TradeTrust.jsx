@@ -64,8 +64,8 @@ const TradeTrust = () => {
                 </div>
 
                 {/* Description */}
-                <div className="bg-white p-6 text-left">
-                  <p className="text h-48 text-left text-base leading-7">{card.desc}</p>
+                <div className="bg-white p-5 text-left">
+                  <p className="text h-40 text-left text-base leading-normal">{card.desc}</p>
                 </div>
               </div>
             ))}
