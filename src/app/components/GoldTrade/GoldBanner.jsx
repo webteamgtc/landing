@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import CommonMainForm from '../MainForm';
 
 const GoldBanner = () => {
   return (
@@ -7,7 +8,7 @@ const GoldBanner = () => {
       <div className="max-w-[1380px] mx-auto px-4">
         <div className="bg-black md:bg-[url('/goldlp/bggold.webp')] bg-cover bg-bottom md:bg-center bg-no-repeat md:h-[650px]">
           <div className="grid grid-cols-3 gap-8 items-center h-full">
-            
+
             {/* Left Content */}
             <div className="col-span-3 md:col-span-2 text-left text-white flex items-center">
               <div className="max-w-3xl px-6 pt-6 md:p-14">
@@ -25,13 +26,13 @@ const GoldBanner = () => {
                 </p>
 
                 {/* CTA Button */}
-            
+
               </div>
             </div>
 
             {/* Right Form Placeholder */}
             <div className="col-span-3 md:col-span-1 p-2 md:p-5">
-              {/* Add your form or image here later */}
+              <CommonMainForm />
             </div>
           </div>
         </div>
