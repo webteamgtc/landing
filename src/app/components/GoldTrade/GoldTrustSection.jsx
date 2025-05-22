@@ -62,15 +62,16 @@ const GoldTrustSection = () => {
         </div>
 
         {/* RIGHT (Image will appear first on mobile) */}
-        <div className="relative w-full h-[300px] md:h-[500px] rounded-xl overflow-hidden">
-          <Image
-            src="/goldlp/imagez.webp"
-            alt="Gold Trading Visual"
-            fill
-            priority
-            className="object-contain"
-          />
-        </div>
+       <div className="relative w-full h-[300px] md:h-[500px] rounded-xl overflow-hidden shrink-0">
+  <Image
+    src="/goldlp/imagez.webp"
+    alt="Gold Trading Visual"
+    fill
+    priority
+    sizes="(max-width: 768px) 100vw, 50vw" // ✅ helps calculate layout
+    className="object-contain"
+  />
+</div>
       </div>
     </section>
   );

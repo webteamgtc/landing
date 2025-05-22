@@ -129,7 +129,7 @@ const CommonMainForm = () => {
                 <div className=" ">
                     <div className="flex justify-center items-center pb-5 ">
                         <Image
-                            src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/img/logo-2024-new.webp"
+                            src="/logo-2024.webp"
                             width={150}
                             height={54}
                             alt="GTCFX"
