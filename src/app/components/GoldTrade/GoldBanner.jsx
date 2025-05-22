@@ -18,7 +18,7 @@ const GoldBanner = () => {
                     gold trade.
                   </span>
                 </h1>
-                <p className="text-sm md:text-base pt-5 max-w-lg leading-6 md:leading-7 text-white">
+                <p className="text-base text-white leading-6 max-w-lg mx-auto">
                   Trade gold with tight spreads, fast execution, and top-tier
                   conditions built for serious traders. Take advantage of powerful
                   platforms and pro-level tools. Stay ahead with reliable insights
