@@ -1,16 +1,5 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
-import {
-  FaFacebookF,
-  FaXTwitter,
-  FaYoutube,
-  FaLinkedinIn,
-  FaWhatsapp,
-  FaTelegram,
-  FaTiktok,
-} from 'react-icons/fa6';
-
 const Footer = () => {
   return (
     <footer className="bg-[#0b0a33] text-white text-sm">

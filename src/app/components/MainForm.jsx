@@ -2,9 +2,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { RiUserLocationLine } from "react-icons/ri";
-import { CiMail } from "react-icons/ci";
-import { GiWorld } from "react-icons/gi";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import OtpInput from "react-otp-input";
@@ -136,6 +133,7 @@ const CommonMainForm = () => {
                             width={150}
                             height={54}
                             alt="GTCFX"
+                            priority
                             className="lg:w-[150px] lg:h-[54px] md:w-[120px] md:h-[53px] w-[130px] h-[47px] cursor-pointer"
                             onClick={() => {
                                 router.push("/");
@@ -150,7 +148,9 @@ const CommonMainForm = () => {
                         {/* Full Name & Email */}
                         <div className="grid grid-cols-1 gap-3 mb-3">
                             <div className="relative">
-                                <RiUserLocationLine className="absolute top-3 left-3 text-gray-400 h-4 w-4" />
+                                <svg className="absolute top-3 left-3 text-gray-400 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
                                 <input
                                     type="text"
                                     className={`w-full px-4 bg-white py-3 pl-9 border-b ${formik.touched.nickname && formik.errors.nickname ? "border-b-red-500" : "border-b-gray-300"} focus:outline-none`}
@@ -162,7 +162,9 @@ const CommonMainForm = () => {
                                 )}
                             </div>
                             <div className="relative">
-                                <RiUserLocationLine className="absolute top-3 left-3 text-gray-400 h-4 w-4" />
+                                <svg className="absolute top-3 left-3 text-gray-400 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
                                 <input
                                     type="text"
                                     className={`w-full px-4 bg-white py-3 pl-9 border-b ${formik.touched.last_name && formik.errors.last_name ? "border-b-red-500" : "border-b-gray-300"} focus:outline-none`}
@@ -180,8 +182,14 @@ const CommonMainForm = () => {
                         <div className="grid grid-cols-1 gap-3 mb-3">
                             <div className="relative">
                                 <div className="relative">
-                                    <CiMail className="absolute top-3 left-3 text-gray-400 h-4 w-4" />
-                                    <input
+                                    <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    className="absolute top-3 left-3 w-4 h-4 text-gray-400 fill-current"
+                                    >
+                                    <path d="M64 112c-8.8 0-16 7.2-16 16l0 22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1l0-22.1c0-8.8-7.2-16-16-16L64 112zM48 212.2L48 384c0 8.8 7.2 16 16 16l384 0c8.8 0 16-7.2 16-16l0-171.8L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64l384 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128z" />
+                                    </svg>
+                                                                        <input
                                         type="email"
                                         className={`w-full bg-white px-4 py-3 pl-9 border-b ${formik.touched.email && formik.errors.email ? "border-b-red-500" : "border-b-gray-300"} focus:outline-none focus:bg-none`}
                                         placeholder="Email"
@@ -259,7 +267,20 @@ const CommonMainForm = () => {
                         </div>
 
                         <div className="relative mb-3">
-                            <GiWorld className="absolute top-3 left-3 text-gray-400 h-4 w-4" />
+                            <svg
+                                className="absolute top-3 left-3 w-4 h-4 text-gray-400"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                >
+                                <path
+                                    d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22M12 2C9.49872 4.73835 8.07725 8.29203 8 12C8.07725 15.708 9.49872 19.2616 12 22M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22M2.50002 9H21.5M2.5 15H21.5"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                                </svg>
                             <select
                                 className={`w-full bg-white px-4 py-3 pl-9 border-b ${formik.touched.country && formik.errors.country ? "border-b-red-500" : "border-gray-300"} text-gray-700`}
                                 {...formik.getFieldProps("country")}
