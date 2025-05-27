@@ -23,7 +23,7 @@ const GoldContentHighlights = () => {
     <section className="bg-[#0b1244] text-white  py-6 md:py-16">
       <div className="max-w-5xl mx-auto px-5 md:px-0">
         <div className='text-center text-white pb-10'>
-        <h2 className="text-xl md:text-4xl font-bold mb-4 px-5">
+        <h2 className="text-xl md:text-3xl font-medium mb-4 px-5">
         Trade Gold Like It’s Meant to Be
                     </h2>
                    

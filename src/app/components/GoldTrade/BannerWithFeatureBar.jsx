@@ -31,13 +31,13 @@ const BannerWithFeatureBar = () => {
             return (
               <div
                 key={index}
-                className={`group relative h-[100px] flex items-center justify-center text-center p-4 bg-[#f5f5f5] text-primary font-medium text-sm md:text-base transition duration-300 hover:bg-primary hover:text-white 
+                className={`group relative h-[100px] flex items-center justify-center text-center hover:cursor-pointer p-4 bg-[#f5f5f5] text-primary text-sm md:text-base transition duration-300 hover:bg-primary hover:text-white 
                 ${isNotLastInRow ? 'border-r border-white' : ''} 
                 md:border-r md:border-white ${index === 3 ? 'md:border-r-0' : ''}`}
                 role="button"
                 aria-label={feature.front}
               >
-                <span className="absolute inset-0 flex items-center text-sm md:text-lg justify-center transition-opacity duration-300 group-hover:opacity-0">
+                <span className="absolute inset-0 flex items-center text-sm md:text-base font-medium justify-center transition-opacity duration-300 group-hover:opacity-0">
                   {feature.front}
                 </span>
                 <span className="absolute w-52 mx-auto inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-3 text-base md:px-5">

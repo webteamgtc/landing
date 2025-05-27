@@ -23,7 +23,7 @@ const TradeGoldFeatures = () => {
   return (
     <section className="bg-white py-6 md:py-16 text-center relative overflow-hidden">
 
-      <h2 className="text-xl md:text-3xl font-bold text-[#0b1244] mb-20 px-5">
+      <h2 className="text-xl md:text-3xl font-medium text-[#0b1244] mb-20 px-5">
         Trade gold like it’s meant to be.
       </h2>
 
