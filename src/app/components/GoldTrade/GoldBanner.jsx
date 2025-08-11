@@ -6,21 +6,7 @@ import Image from 'next/image';
 const GoldBanner = () => {
   return (
     <section className="py-10 lg:py-[70px] bg-[url('/goldlp/bg-1.svg')] bg-cover bg-center text-center md:h-[850px]">
-       <div className="flex justify-center items-center pb-5 ">
-                              <Image
-                                  src="/logo-2024.webp"
-                                  width={150}
-                                  height={54}
-                                  alt="GTCFX"
-                                  priority
-                                  className="lg:w-[150px] lg:h-[54px] md:w-[120px] md:h-[53px] w-[130px] h-[47px] cursor-pointer"
-                                  onClick={() => {
-                                      router.push("/");
-                                  }}
-                              />
-      
-      
-                          </div>
+    
       <div className="max-w-[1380px] mx-auto px-4">
         <div className="bg-black md:bg-[url('/goldlp/bggold.webp')] bg-cover bg-bottom md:bg-center bg-no-repeat md:h-[650px]">
           <div className="grid grid-cols-3 gap-4 md:gap-8 items-center h-full">
