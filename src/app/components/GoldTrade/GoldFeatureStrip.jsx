@@ -35,7 +35,7 @@ const GoldFeatureStrip = () => {
                                 "hover:bg-[#0b1244] hover:text-white hover:scale-105 hover:shadow-2xl border border-secondary border-opacity-30"
                             )}
                         >
-                            <h4 className="font-semibold text-md mb-2">{item.title}</h4>
+                            <h4 className="font-medium text-md mb-2">{item.title}</h4>
                             <p className="text-sm">{item.description}</p>
                         </div>
                     ))}

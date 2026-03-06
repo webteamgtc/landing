@@ -99,7 +99,7 @@ You’re almost there. To start trading gold with tighter spreads and instant ex
 export async function POST(req) {
     const reqBody = await req.json();
     const mailOption = {
-        from: "service@mx.gtcmail.com",
+        from: "portal@mx4.gtcmail.com",
         to: reqBody?.email,
     }
     try {

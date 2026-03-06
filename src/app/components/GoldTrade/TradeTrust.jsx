@@ -35,7 +35,7 @@ const TradeTrust = () => {
 
         {/* Right: 60% (3 of 5 columns) */}
         <div className="col-span-3">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#0b1244] mb-4 leading-tight">
+          <h2 className="text-2xl md:text-3xl font-medium text-[#0b1244] mb-4 leading-tight">
             Why over <span className="text-secondary">985,000</span> traders
             <br /> trust GTC for gold?
           </h2>

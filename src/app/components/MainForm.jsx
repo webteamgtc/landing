@@ -144,16 +144,16 @@ const CommonMainForm = () => {
                     </div>
                 </div>
                 <div className="relative">
-                    <form onSubmit={formik.handleSubmit} className="bg-white relative text-xs rounded-3xl md:p-0 mx-auto form-setting text-left">
+                    <form onSubmit={formik.handleSubmit} className="bg-white relative text-sm rounded-3xl md:p-0 mx-auto form-setting text-left">
                         {/* Full Name & Email */}
                         <div className="grid grid-cols-1 gap-3 mb-3">
                             <div className="relative">
-                                <svg className="absolute top-3 left-3 text-gray-400 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                <svg className="absolute top-3 left-0 text-gray-400 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                 </svg>
                                 <input
                                     type="text"
-                                    className={`w-full px-4 bg-white py-3 pl-9 border-b ${formik.touched.nickname && formik.errors.nickname ? "border-b-red-500" : "border-b-gray-300"} focus:outline-none`}
+                                    className={`w-full px-4 bg-white py-3 pl-5 border-b ${formik.touched.nickname && formik.errors.nickname ? "border-b-red-500" : "border-b-gray-300"} focus:outline-none`}
                                     placeholder="First Name"
                                     {...formik.getFieldProps("nickname")}
                                 />
@@ -162,12 +162,12 @@ const CommonMainForm = () => {
                                 )}
                             </div>
                             <div className="relative">
-                                <svg className="absolute top-3 left-3 text-gray-400 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                <svg className="absolute top-3 left-0 text-gray-400 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                 </svg>
                                 <input
                                     type="text"
-                                    className={`w-full px-4 bg-white py-3 pl-9 border-b ${formik.touched.last_name && formik.errors.last_name ? "border-b-red-500" : "border-b-gray-300"} focus:outline-none`}
+                                    className={`w-full px-4 bg-white py-3 pl-5 border-b ${formik.touched.last_name && formik.errors.last_name ? "border-b-red-500" : "border-b-gray-300"} focus:outline-none`}
                                     placeholder="Last Name"
                                     {...formik.getFieldProps("last_name")}
                                 />
@@ -327,7 +327,7 @@ const CommonMainForm = () => {
 
                         {/* Submit Button */}
                         <div className="text-center">
-                            <button disabled={isDisable} type="submit" className="bg-primary text-white w-full font-medium py-2 px-8 rounded-lg text-lg">
+                            <button disabled={isDisable} type="submit" className="bg-primary text-white w-full py-2 px-8 rounded-lg">
                                 {loading ? "Submitting.." : "Get Started Now"}
                             </button>
                         </div>

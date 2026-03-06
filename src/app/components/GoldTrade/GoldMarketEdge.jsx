@@ -27,7 +27,7 @@ const GoldMarketEdge = () => {
   return (
     <section className="py-12 md:py-16 bg-white text-center">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-xl md:text-3xl font-bold text-[#0b1244] mb-4">
+        <h2 className="text-xl md:text-3xl font-medium text-[#0b1244] mb-4">
           Your Edge in the Gold Market
         </h2>
         <p className="text max-w-3xl mx-auto mb-12 leading-normal">
