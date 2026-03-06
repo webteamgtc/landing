@@ -7,7 +7,7 @@ export async function POST(req) {
     const { email } = await req.json();
     const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false, digits: true, lowerCaseAlphabets: false });
     const mailData = {
-        from: '"GTCFX" <service@mx.gtcmail.com>',
+        from: '"GTCFX" <portal@mx4.gtcmail.com>',
         to: email,
         subject: "Your GTCFX OTP Code",
         text: `Your OTP is ${otp}`,
