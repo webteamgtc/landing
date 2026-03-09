@@ -9,7 +9,7 @@ import Button from "./Button";
 export default function Landing2InstantAccess({ data }) {
   return (
     <div className=" relative">
-      <section className=" max-w-6xl px-4  mx-auto flex items-center min-h-[420px] w-full overflow-hidden py-16 md:min-h-[520px] md:py-24">
+      <section className=" max-w-6xl px-4 py-8  mx-auto flex items-center min-h-[270px] w-full overflow-hidden md:min-h-[500px] md:py-24">
         {/* Full background image */}
         <div className="absolute inset-0">
           <Image
@@ -21,28 +21,32 @@ export default function Landing2InstantAccess({ data }) {
             priority
           />
         </div>
+        <div
+          className="absolute md:hidden block inset-0 z-0 bg-black/50"
+          aria-hidden
+        />
         {/* Content overlaid on the left */}
         <div className="relative z-10">
-          <Container>
+          <div className="max-w-6xl  mx-auto">
             <div className="max-w-xl">
-              <Heading variant="sectionLight" as="h2" className="text-[#333333] text-left !font-normal">
+              <Heading variant="sectionLight" as="h2" className="md:text-[#333333] text-[#fff] text-left !font-normal">
                 {data?.title}
               </Heading>
-              <p className="mt-4 text-lg font-normal leading-relaxed text-[#000000]">
+              <p className="mt-4 text-lg font-normal leading-relaxed md:text-[#000000] text-[#fff]">
                 {data?.desc}
               </p>
-              <div className="mt-6">
+              <div className="md:mt-6 mt-4">
                 <Button size="md" variant={data?.variant}>
                   {data?.btnText}
                 </Button>
               </div>
               {data?.footerText && (
-                <p className="mt-8 md:mt-12 text-sm font-normal leading-relaxed text-[#868686]">
+                <p className="md:mt-8 mt-6 text-sm font-normal leading-relaxed md:text-[#868686] text-[#fff]">
                   {data?.footerText}
                 </p>
               )}
             </div>
-          </Container>
+          </div>
         </div>
       </section>
     </div>

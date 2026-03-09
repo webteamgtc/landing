@@ -37,12 +37,12 @@ export default function CopyTradingFlexibleSection({ data }) {
                         />
                     </div>
 
-                    <div className="relative flex-shrink-0 w-full max-w-[330px]">
+                    <div className="relative flex-shrink-0 w-full max-w-[330px] mx-auto">
                         <div className="relative">
                             <img
                                 src="/copy-trading.svg"
                                 alt="GTC copy trading app"
-                                className="mx-auto max-w-[330px] w-full md:max-w-[410px]"
+                                className="mx-auto max-w-[330px] h-[230px] md:h-auto w-full md:max-w-[410px]"
                                 draggable={false}
                             />
                         </div>
@@ -62,27 +62,35 @@ export default function CopyTradingFlexibleSection({ data }) {
                     </div>
                 </div>
 
-                <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-4 sm:gap-6 text-center md:hidden">
-                    <Feature
-                        title={data?.columnsLeft?.[0]?.title}
-                        desc={data?.columnsLeft?.[0]?.desc}
-                        align="center"
-                    />
-                    <Feature
-                        title={data?.columnsLeft?.[1]?.title}
-                        desc={data?.columnsLeft?.[1]?.desc}
-                        align="center"
-                    />
-                    <Feature
-                        title={data?.columnRight?.[0]?.title}
-                        desc={data?.columnRight?.[0]?.desc}
-                        align="center"
-                    />
-                    <Feature
-                        title={data?.columnRight?.[1]?.title}
-                        desc={data?.columnRight?.[1]?.desc}
-                        align="center"
-                    />
+                <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-0 text-center md:hidden">
+                    <div className="border-b border-white/20 py-4 first:pt-0">
+                        <Feature
+                            title={data?.columnsLeft?.[0]?.title}
+                            desc={data?.columnsLeft?.[0]?.desc}
+                            align="center"
+                        />
+                    </div>
+                    <div className="border-b border-white/20 py-4">
+                        <Feature
+                            title={data?.columnsLeft?.[1]?.title}
+                            desc={data?.columnsLeft?.[1]?.desc}
+                            align="center"
+                        />
+                    </div>
+                    <div className="border-b border-white/20 py-4">
+                        <Feature
+                            title={data?.columnRight?.[0]?.title}
+                            desc={data?.columnRight?.[0]?.desc}
+                            align="center"
+                        />
+                    </div>
+                    <div className="py-4">
+                        <Feature
+                            title={data?.columnRight?.[1]?.title}
+                            desc={data?.columnRight?.[1]?.desc}
+                            align="center"
+                        />
+                    </div>
                 </div>
             </div>
         </section>

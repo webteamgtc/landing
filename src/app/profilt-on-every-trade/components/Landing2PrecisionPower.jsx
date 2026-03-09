@@ -65,27 +65,27 @@ const features = [
 
 export default function Landing2PrecisionPower({data}) {
   return (
-    <section className="bg-white py-10 md:py-16">
+    <section className="bg-white py-8 md:py-16">
       <Container>
         <div className="text-center">
           <Heading variant="sectionLight" as="h2">
             {data?.title}
           </Heading>
-          <p className="mx-auto mt-3 max-w-4xl md:text-lg text-base font-normal leading-relaxed text-[#A5A5A5]">
+          <p className="mx-auto mt-2 max-w-4xl md:text-lg text-base font-normal leading-relaxed text-[#A5A5A5]">
            {data?.desc}
           </p>
-          <div className="mt-8">
+          <div className="md:mt-8 mt-4">
             <Button  size="md">
               {data?.btnText}
             </Button>
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:mt-20 md:grid-cols-3 md:gap-x-8 md:gap-y-8">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-20 md:grid-cols-3 md:gap-x-8 md:gap-y-8">
           {data?.cards.map((f) => (
             <div
               key={f.title}
-              className="flex flex-col items-center rounded-2xl bg-[#F8F9F9] p-8 text-center"
+              className="flex flex-col items-center rounded-2xl bg-[#F8F9F9] md:p-8 p-6 text-center"
             >
               <div className="relative h-10 w-10 flex-shrink-0 md:h-12 md:w-12">
                 {f.icon}

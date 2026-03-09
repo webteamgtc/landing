@@ -34,14 +34,14 @@ const panels = [
 
 export default function TradingConditions() {
   return (
-    <section className="bg-[#293b93] pt-10 md:pt-16">
+    <section className="bg-[#293b93] mb-[-2px] pt-8 pb-2 md:pt-16">
       <Container>
         {/* Header */}
-        <div className="text-center max-w-6xl mx-auto mb-10 md:mb-14">
+        <div className="text-center max-w-6xl mx-auto mb-8 md:mb-14">
           <Heading variant="sectionDark" className="mb-4">
             What Could Better Trading Conditions Do for You?
           </Heading>
-          <p className="text-[#D1D1D1] text-base md:text-lg mb-8">
+          <p className="text-[#D1D1D1] text-sm md:text-lg md:mb-8 mb-6">
             The right trading conditions can change your results faster than you think.
           </p>
           <Button variant="primary" size="lg" as="a" href="#start-trading">
@@ -50,14 +50,14 @@ export default function TradingConditions() {
         </div>
 
         {/* Two panels */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-14 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-16">
           {panels.map((panel, i) => (
             <div
               key={i}
-              className="bg-[#172C4F] p-6 md:p-8 flex flex-col"
+              className="bg-[#172C4F] p-4 md:p-8 flex flex-col"
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full border bg-[#0E1D32] px-4 py-2 w-fit mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full border bg-[#0E1D32] px-4 py-2 w-fit md:mb-6 mb-2">
                 <span className={`text-[#D1A75B] ${panel.badgeColor}`}>{panel.badgeIcon}</span>
                 <span className="text-white text-sm font-semibold uppercase tracking-wide">
                   {panel.badgeText}
@@ -65,7 +65,7 @@ export default function TradingConditions() {
               </div>
 
               {/* Chart placeholder – replace src with your final image */}
-              <div className="relative w-full aspect-[16/10] min-h-[200px]  rounded-lg overflow-hidden mb-6 flex items-center justify-center">
+              <div className="relative w-full aspect-[16/10] min-h-[160px] md:min-h-[200px]  rounded-lg overflow-hidden md:mb-6 mb-2 flex items-center justify-center">
                 <img
                   src={panel.chartImage}
                   alt={`${panel.title} comparison chart`}
