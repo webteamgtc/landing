@@ -24,6 +24,10 @@ body {
   height: 100%;
 }
 
+.container {
+  @apply max-w-[1380px] mx-auto px-3;
+}
+
 /* Flip on hover (vertical flip) */
 .flip-container:hover .flip-inner {
   transform: rotateX(180deg);
@@ -56,4 +60,11 @@ body {
 .flip-front {
   background-color: #f5f5f5;
   color: #1d2746;
+}
+
+
+.india-bg-switch {
+  background: url("/india-bg.svg") no-repeat center center;
+  background-position: bottom;
+  background-size: 100% 91%;
 }
