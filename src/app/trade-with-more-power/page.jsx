@@ -1,10 +1,10 @@
 import Footer from "../components/Footer";
-import Landing2Hero from "../landing-2/components/Landing2Hero";
-import Landing2InstantAccess from "../landing-2/components/Landing2InstantAccess";
-import Landing2Media from "../landing-2/components/Landing2Media";
-import Landing2Opportunities from "../landing-2/components/Landing2Opportunities";
-import Landing2PrecisionPower from "../landing-2/components/Landing2PrecisionPower";
-import Landing2WhyWins from "../landing-2/components/Landing2WhyWins";
+import Landing2Hero from "../profilt-on-every-trade/components/Landing2Hero";
+import Landing2InstantAccess from "../profilt-on-every-trade/components/Landing2InstantAccess";
+import Landing2Media from "../profilt-on-every-trade/components/Landing2Media";
+import Landing2Opportunities from "../profilt-on-every-trade/components/Landing2Opportunities";
+import Landing2PrecisionPower from "../profilt-on-every-trade/components/Landing2PrecisionPower";
+import Landing2WhyWins from "../profilt-on-every-trade/components/Landing2WhyWins";
 
 export const metadata = {
     title: "Maximize Your Profits on Every Gold Trade | GTC",

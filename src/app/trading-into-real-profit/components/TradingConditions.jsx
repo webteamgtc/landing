@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Container from "../../landing-2/components/Container";
-import Heading from "../../landing-2/components/Heading";
-import Button from "../../landing-2/components/Button";
+import Container from "../../profilt-on-every-trade/components/Container";
+import Heading from "../../profilt-on-every-trade/components/Heading";
+import Button from "../../profilt-on-every-trade/components/Button";
 
 const panels = [
   {
