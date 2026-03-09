@@ -30,7 +30,7 @@ export default function GoldOpportunitySection({ data }) {
   ];
 
   return (
-    <section className="w-full bg-[#fff] py-14">
+    <section className="w-full bg-[#fff] md:py-14 py-8">
       <div className="mx-auto max-w-5xl px-4">
         {/* heading */}
         <div className="text-center">
@@ -39,7 +39,7 @@ export default function GoldOpportunitySection({ data }) {
           </Heading>
 
           {/* buttons */}
-          <div className="mt-10 flex items-center justify-center gap-4">
+          <div className="md:mt-10 mt-6 flex items-center justify-center gap-4">
             <Button size="md" variant={data.btn1Varient}>
               {data.btn1Text}
             </Button>
@@ -51,11 +51,11 @@ export default function GoldOpportunitySection({ data }) {
         </div>
 
         {/* cards */}
-        <div className="mx-auto mt-14 grid max-w-[1120px] grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mx-auto md:mt-14 mt-8 grid max-w-[1120px] grid-cols-1 gap-6 md:grid-cols-3">
           {data?.cards?.map((card, index) => (
             <article
               key={index}
-              className="overflow-hidden rounded-[14px] border border-[#D9D9D9] bg-white"
+              className="overflow-hidden rounded-[14px] border border-[#E2E2E2] bg-white"
             >
               {/* image area */}
               <div className="relative h-[255px] overflow-hidden bg-[#243A98]">
@@ -91,7 +91,7 @@ export default function GoldOpportunitySection({ data }) {
               </div>
 
               {/* content */}
-              <div className=" px-5 py-7">
+              <div className=" md:px-5 text-center md:text-left md:py-7 px-4 py-5">
                 <Heading variant="card" as="h3">
                   {card.title}
                 </Heading>
@@ -105,7 +105,7 @@ export default function GoldOpportunitySection({ data }) {
           ))}
         </div>
         {data?.footerText && (
-          <p className="md:mt-14 mt-8 text-center md:text-base text-sm leading-relaxed font-normal text-[#A5A5A5]">{data?.footerText}</p>
+          <p className="md:mt-14 mt-6 text-center md:text-base text-sm leading-relaxed font-normal text-[#A5A5A5]">{data?.footerText}</p>
         )}
       </div>
     </section>

@@ -14,13 +14,13 @@ const logos = [
 
 export default function Landing2Media() {
   return (
-    <section className="bg-[#F5F5F5] py-14 md:py-16">
+    <section className="bg-[#F5F5F5] py-8 md:py-16">
       <Container>
         <Heading variant="media" as="h2">
           GTCFX IN THE NEWS.
         </Heading>
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-10 md:mt-10 md:gap-14 lg:gap-16">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-6 md:mt-10 md:gap-14 lg:gap-16">
           {logos.map((logo) => (
             <div
               key={logo.name}

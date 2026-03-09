@@ -25,23 +25,23 @@ export default function GoldTradeHero({ bgImage, hideImg, title, description, bt
         />
       )}
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 ">
         <Landing2Header />
 
-        <div className="relative pt-1">
+        <div className="relative pt-6 md:pt-0">
           {/* hero content */}
-          <div className=" min-h-[80vh] flex flex-col">
+          <div className=" min-h-[90vh] flex flex-col">
             <div className="mt-2 flex-1 grid grid-cols-1 items-center md:grid-cols-12">
               {/* left content */}
-              <div className="col-span-7">
+              <div className="col-span-7 text-center md:text-left">
                 <Heading as="h1" variant="hero" dangerouslySetInnerHTML={{ __html: title }}>
                 </Heading>
 
-                <p className="mt-8 text-[20px] font-normal md:text-[26px] leading-[1.16] text-[#E2E2E2]">
+                <p className="mt-8 text-center md:text-left text-[16px] font-normal md:text-[26px] leading-[1.16] text-[#E2E2E2]">
                   {description}
                 </p>
 
-                <Button className="mt-8" size="md" variant={variant}>
+                <Button className="mt-8 text-center md:text-left" size="md" variant={variant}>
                   {btnText}
                 </Button>
               </div>
@@ -78,11 +78,11 @@ export default function GoldTradeHero({ bgImage, hideImg, title, description, bt
 
 function FeatureItem({ icon, label }) {
   return (
-    <div className="flex items-center gap-[10px]">
-      <span className="inline-flex h-[18px] w-[18px] items-center justify-center text-white/90">
+    <div className="flex items-center gap-[8px] md:gap-[10px]">
+      <span className="inline-flex md:h-[18px] md:w-[18px] h-[14px] w-[14px] items-center justify-center text-white/90">
         {icon}
       </span>
-      <span className="text-[16px] font-normal text-white">{label}</span>
+      <span className="text-[12px] md:text-[16px] font-normal text-white">{label}</span>
     </div>
   );
 }
