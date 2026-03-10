@@ -2,35 +2,39 @@
 import React from "react";
 import Button from "../../profilt-on-every-trade/components/Button";
 
-const HEADING = "What Our Arabic Traders Are Saying";
-const DESCRIPTION = "With thousands of happy traders from the UAE, Oman, Qatar, Kuwait, Iraq, Jordan & Lebanon, isn't it time you switched to GTC?";
-const BUTTON_TEXT = "Switch To GTC";
+const HEADING = "What Our Traders Are Saying";
+
+const DESCRIPTION =
+  "Thousands of traders worldwide trust GTC for reliable execution, fast withdrawals, and a powerful trading experience.";
+
+const BUTTON_TEXT = "Start Trading";
+
 const BUTTON_TEXT_2 = "Trade Gold";
 
 const testimonials = [
   {
-    text: "\"I switched to GTC because the withdrawal speed blew my old broker out of the water. Instant payout in USDT? Love it.\"",
-    name: "Mohammed A.",
+    text: "\"I switched to GTC because the withdrawal speed is incredible. Getting payouts quickly makes trading much smoother.\"",
+    name: "Michael R.",
     stars: 5,
-    country: "UAE"
+    country: "Global Trader"
   },
   {
-    text: "\"I scalp gold all day, and GTC is the only broker I've found that actually lets me do that without weird time limits.\"",
-    name: "Omar S.",
+    text: "\"I trade gold frequently and the execution with GTC has been very reliable. Orders are fast and spreads are competitive.\"",
+    name: "David L.",
     stars: 5,
-    country: "Qatar"
+    country: "Active Trader"
   },
   {
-    text: "\"My previous broker slipped my orders like crazy during news. GTC's execution is solid. I finally trust the platform.\"",
-    name: "Hussein B.",
+    text: "\"After trying several brokers, GTC has been the most stable platform for my trading. Execution and reliability are excellent.\"",
+    name: "Alex T.",
     stars: 5,
-    country: "Iraq"
+    country: "Forex Trader"
   },
   {
-    text: "Customer support at GTC actually speaks to you like a human, not just a ticket number. That alone is worth switching.",
-    name: "Abdullah K.",
+    text: "\"Customer support is responsive and helpful whenever I need assistance. It's great to have a team that actually supports traders.\"",
+    name: "James K.",
     stars: 5,
-    country: "Lebanon"
+    country: "Verified Client"
   },
 ];
 

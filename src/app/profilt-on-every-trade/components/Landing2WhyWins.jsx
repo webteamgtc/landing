@@ -12,15 +12,22 @@ export default function CopyTradingFlexibleSection({ data }) {
         >
 
             <div className="relative mx-auto max-w-6xl px-4 pt-8 sm:pt-16 pb-10 md:pb-0">
-                <Heading variant="sectionDark" as="h2">
+                <div className="max-w-xl mx-auto text-center flex flex-col items-center gap-6">
+      <Heading variant="sectionDark" as="h2" className="!max-w-xl">
                     {data?.title}
                 </Heading>
 
-                <div className="mt-6 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-[14px]">
+                 <p className="text-[16px] font-normal md:text-[17px] leading-[1.6] text-[#E2E2E2]">From advanced trading features to exclusive VIP benefits, enjoy a complete ecosystem built to support your trading goals.</p>
+   <div className=" flex flex-wrap items-center justify-center gap-2 sm:gap-[14px]">
                     <StoreBadge type="appstore" />
                     <StoreBadge type="googleplay" />
                     <StoreBadge type="apk" />
                 </div>
+                </div>
+          
+               
+
+             
 
                 <div className="relative mt-8 sm:mt-12 grid grid-cols-1 items-center md:grid-cols-3 md:gap-6">
                     <div className="hidden max-w-xs flex-shrink-0 md:block md:pb-2">
@@ -33,6 +40,12 @@ export default function CopyTradingFlexibleSection({ data }) {
                         <Feature
                             title={data?.columnsLeft?.[1]?.title}
                             desc={data?.columnsLeft?.[1]?.desc}
+                            align="center"
+                        />
+                         <div className="h-[50px]" />
+                        <Feature
+                            title={data?.columnsLeft?.[2]?.title}
+                            desc={data?.columnsLeft?.[2]?.desc}
                             align="center"
                         />
                     </div>
@@ -59,6 +72,13 @@ export default function CopyTradingFlexibleSection({ data }) {
                             desc={data?.columnRight?.[1]?.desc}
                             align="center"
                         />
+                         <div className="h-[50px]" />
+                        <Feature
+                                title={data?.columnRight?.[2]?.title}
+                            desc={data?.columnRight?.[2]?.desc}
+                            align="center"
+                        />
+                        
                     </div>
                 </div>
 
@@ -90,6 +110,11 @@ export default function CopyTradingFlexibleSection({ data }) {
                             desc={data?.columnRight?.[1]?.desc}
                             align="center"
                         />
+                         <Feature
+                            title={data?.columnRight?.[2]?.title}
+                            desc={data?.columnRight?.[2]?.desc}
+                            align="center"
+                        />
                     </div>
                 </div>
             </div>
@@ -103,8 +128,8 @@ function Feature({ title, desc, align = "left" }) {
 
     return (
         <div className={isCenter ? "text-center" : isRight ? "text-right" : "text-left"}>
-            <div className="md:text-[22px] text-[18px] font-semibold text-white">{title}</div>
-            <div className="md:mt-3 mt-1 font-normal md:text-[16px] text-[14px] leading-[1.55] text-white">
+            <div className="md:text-[18px] text-[16px] font-semibold text-secondary">{title}</div>
+            <div className="md:mt-3 mt-1 font-normal md:text-[15px] text-[14px] leading-[1.55] text-white">
                 {desc}
             </div>
         </div>
@@ -112,59 +137,60 @@ function Feature({ title, desc, align = "left" }) {
 }
 
 function StoreBadge({ type }) {
-    // shared pill style (matches screenshot)
-    const base =
-        "inline-flex items-center gap-1.5 sm:gap-2 py-1.5 sm:py-2 px-3 sm:px-4";
+  const base =
+    "inline-flex items-center justify-center transition hover:opacity-90";
 
-    if (type === "appstore") {
-        return (
-            <div className={base}
-                style={{
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255, 255, 255, 0.30)",
-                    background: "rgba(255, 255, 255, 0.10)",
-                }}
-            >
-                <AppleIcon />
-                <div className="leading-none">
-                    <div className="text-[10px] sm:text-[12px] font-normal text-white">Download on the</div>
-                    <div className="text-[13px] sm:text-[16px] font-semibold text-white">App Store</div>
-                </div>
-            </div>
-        );
-    }
-
-    if (type === "googleplay") {
-        return (
-            <div className={base}
-                style={{
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255, 255, 255, 0.30)",
-                    background: "rgba(255, 255, 255, 0.10)",
-                }}
-            >
-                <PlayIcon />
-                <div className="leading-none">
-                    <div className="text-[7px] font-semibold text-white/80">GET IT ON</div>
-                    <div className="text-[11px] font-bold text-white">Google Play</div>
-                </div>
-            </div>
-        );
-    }
-
+  if (type === "appstore") {
     return (
-        <div className={base}
-            style={{
-                borderRadius: "8px",
-                border: "1px solid rgba(255, 255, 255, 0.30)",
-                background: "rgba(255, 255, 255, 0.10)",
-            }}
-        >
-            <AndroidIcon />
-            <div className="text-[11px] font-extrabold tracking-[0.6px] text-white">APK</div>
-            <DownloadIcon />
-        </div>
+      <a
+        href="https://apps.apple.com/ae/app/gtc-go/id6753007277"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={base}
+      >
+        <img
+          src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/email/app-stoe.webp"
+          alt="Download on App Store"
+          className="h-[45px] w-auto"
+          draggable={false}
+        />
+      </a>
     );
+  }
+
+  if (type === "googleplay") {
+    return (
+      <a
+        href="https://play.google.com/store/search?q=GTC%20Go&c=apps&hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={base}
+      >
+        <img
+          src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/email/google-play.webp"
+          alt="Get it on Google Play"
+          className="h-[45px] w-auto"
+          draggable={false}
+        />
+      </a>
+    );
+  }
+
+  return (
+    <a
+      href="https://file.mygtc.app/app/app-release-go-2.9.1.apk"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={base}
+    >
+      <img
+        src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/email/apk-file.webp"
+        alt="Download APK"
+        className="h-[45px] w-auto"
+        draggable={false}
+      />
+    </a>
+  );
 }
 
 /* ------------------------- Icons ------------------------- */

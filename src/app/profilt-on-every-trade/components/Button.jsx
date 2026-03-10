@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 const variants = {
   primary:
-    "bg-[#B48755] text-white hover:bg-[#bb8843]",
+    "bg-gradient-to-r from-[#B68756] via-[#995F22] to-[#995F22] hover:from-[#263788] hover:via-[#101638] hover:to-[#263788] mt-2 w-full sm:w-fit justify-center flex items-center gap-2   cursor-pointer      text-sm font-bold md:text-base xl:text-lg text-white   px-8 py-3 rounded-sm transition-all duration-300",
   secondary:
     "bg-[#EDF0F2] text-black hover:bg-[#dde2e7]",
   blue:
@@ -31,7 +31,7 @@ export default function Button({
   return (
     <Tag
       className={clsx(
-        "inline-flex items-center justify-center rounded-[3px] font-semibold transition",
+        "inline-flex items-center gap-4 justify-center rounded-[3px] font-semibold transition",
         variants[variant],
         sizes[size],
         className
@@ -39,6 +39,15 @@ export default function Button({
       {...props}
     >
       {children}
+        <svg
+        width="9"
+        height="14"
+        viewBox="0 0 9 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M1 1L7 7L1 13" stroke="#fff" strokeWidth="3" />
+      </svg>
     </Tag>
   );
 }

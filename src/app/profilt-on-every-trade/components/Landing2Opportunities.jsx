@@ -30,28 +30,16 @@ export default function GoldOpportunitySection({ data }) {
   ];
 
   return (
-    <section className="w-full bg-[#fff] md:py-14 py-8">
-      <div className="mx-auto max-w-5xl px-4">
+    <section className="w-full bg-[#fff] md:py-14 py-8 px-4 md:px-0">
+      <div className="mx-auto max-w-6xl">
         {/* heading */}
-        <div className="text-center">
+        <div className="text-center  flex flex-col items-center gap-8">
           <Heading variant="sectionLight" as="h2">
             {data.title}
           </Heading>
 
-          {/* buttons */}
-          <div className="md:mt-10 mt-6 flex items-center justify-center gap-4">
-            <Button size="md" variant={data.btn1Varient}>
-              {data.btn1Text}
-            </Button>
-            <Button size="md" variant={data.btn2Varient}>
-              {data.btn2Text}
-            </Button>
-
-          </div>
-        </div>
-
-        {/* cards */}
-        <div className="mx-auto md:mt-14 mt-8 grid max-w-[1120px] grid-cols-1 gap-6 md:grid-cols-3">
+       
+           <div className="mx-auto grid max-w-[1120px] grid-cols-1 gap-6 md:grid-cols-3">
           {data?.cards?.map((card, index) => (
             <article
               key={index}
@@ -104,6 +92,19 @@ export default function GoldOpportunitySection({ data }) {
             </article>
           ))}
         </div>
+
+           {/* buttons */}
+          <div className="flex items-center justify-center gap-4">
+            <Button size="md" variant={data.btn1Varient}>
+              {data.btn1Text}
+            </Button>
+          
+
+          </div>
+        </div>
+
+        {/* cards */}
+       
         {data?.footerText && (
           <p className="md:mt-14 mt-6 text-center md:text-base text-sm leading-relaxed font-normal text-[#A5A5A5]">{data?.footerText}</p>
         )}

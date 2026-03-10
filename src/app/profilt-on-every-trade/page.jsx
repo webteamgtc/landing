@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import ReviewsSection from "../components/ReviewsSection";
 import Landing2Hero from "./components/Landing2Hero";
 import Landing2InstantAccess from "./components/Landing2InstantAccess";
 import Landing2Media from "./components/Landing2Media";
@@ -60,25 +61,33 @@ export default function Landing2Page() {
   ]
 
   const copySection = {
-    title: "Why GTC Wins Every Time?",
+    title: "Unlock a Smarter Way to Trade with GTC GO",
     columnsLeft: [
       {
-        title: "Tighter Spreads on Gold",
-        desc: "Trade with spreads that stay low, even during high volatility."
+        title: "Smarter Copy Trading",
+        desc: "Flexible, powerful and designed for real traders. Follow signals with custom cycles."
       },
       {
-        title: "Full Flexibility",
-        desc: "Use the leverage you need and stay in control of every trade."
+        title: "High-quality Design",
+        desc: "Clean, intuitive and built to make every trading interaction smoother and faster."
+      },
+      {
+        title: "Essential Integrations",
+        desc: "Connect easily with key tools and services across your trading workflow."
       }
     ],
     columnRight: [
       {
-        title: "Transparent Pricing",
-        desc: "No hidden fees. No commission. No surprises."
+        title: "Essential Components",
+        desc: "All the core features you need for a complete, unified trading experience."
       },
       {
-        title: "Unmatched Execution Speed",
-        desc: "Execute trades faster, reducing slippage & improving profit potential."
+        title: "Fully Customizable",
+        desc: "Adapt the platform to your style, preferences and trading strategies."
+      },
+       {
+        title: "Regular Free Updates",
+        desc: "Continuous improvements and new features rolled out with no extra cost."
       }
     ]
   }
@@ -86,7 +95,7 @@ export default function Landing2Page() {
 
   const opportunitiesData = {
     title: "Why Trade Small When You Can Trade Bigger?",
-    btn1Text: "Open Live Account",
+    btn1Text: "Get Started",
     btn2Text: "Try Free Demo",
     btn2Varient: "secondary",
     cards: [
@@ -113,7 +122,7 @@ export default function Landing2Page() {
   const cardSection = {
     title: "Trade Gold with Precision and Power.",
     desc: "Discover smarter opportunities in the world's most trusted safe-haven asset.",
-    btnText: "Start Trading Gold",
+    btnText: "Get Started",
     varient: "primary",
     cards: [
       {
@@ -182,19 +191,20 @@ export default function Landing2Page() {
   const footerBanner = {
     title: "Want Instant Access to Your Gold Profits?",
     desc: "At GTC, most gold withdrawals are processed quickly and efficiently, so your capital is always within reach.",
-    btnText: "Start Trading Gold",
+    btnText: "Get Started",
     footerText: "Processing times may vary depending on the chosen payment method."
   }
   return (
     <main className="min-h-screen bg-white text-primary">
       <Landing2Hero
+      bgImage="/ab/bg-banner.webp" hideImg={false}
         title="Maximize Your Profits on Every Gold Trade."
-        description="Traders trust GTC for tight spreads, fast execution and safe withdrawals."
-        btnText="Trade Gold"
+        description="Trade gold with tight spreads, fast execution, and top-tier conditions built for serious traders. Take advantage of powerful platforms and pro-level tools. Stay ahead with reliable insights designed for gold trading success."
+        btnText="Get Started"
         headerItems={headerItems}
       />
       <Landing2Opportunities data={opportunitiesData} />
-      <Landing2Media />
+      <ReviewsSection />
       <Landing2WhyWins data={copySection} />
       <Landing2PrecisionPower data={cardSection} />
       <Landing2InstantAccess data={footerBanner} />

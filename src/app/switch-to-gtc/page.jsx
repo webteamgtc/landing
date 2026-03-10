@@ -12,6 +12,8 @@ import Footer from '../components/Footer';
 export const dynamic = 'force-static';
 
 
+
+
 export default function LandingPage() {
   const [isOpen, setIsOpen] = useState(false);
  

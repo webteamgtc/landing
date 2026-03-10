@@ -26,7 +26,7 @@ const generateEmailContent = (data) => {
                         <tr>
                    <td class="content">
                                 <h1 style="color: #192055; text-align:center; font-size: 18px; max-width: 80%; margin: 0px auto;">
-                                    Start Trading Gold Now
+                                    Get Started Now
                                 </h1>
                     <h3 style="font-size: 16px; color: #192055; margin-bottom: 16px; padding: 0px 20px;">
                     Hi ${data?.nickname||""},
@@ -35,7 +35,7 @@ const generateEmailContent = (data) => {
                     Thanks for signing up with <b style="color: #b68756;">GTC</b>!
                     </p>
                     <p style="margin-bottom: 16px; padding: 0px 20px;">
-You’re almost there. To start trading gold with tighter spreads and instant execution, simply click the link below to register yourself and start trading.                    </p>
+You’re almost there. To Get Started with tighter spreads and instant execution, simply click the link below to register yourself and start trading.                    </p>
                     <p style="text-align: center; margin: 20px 0;">
                     <a href="https://web.mygtc.app/" target="_blank" style="background-color: #202a6b; text-decoration: none; color: #ffffff; padding: 10px 25px; border-radius: 5px; display: inline-block;">Register Now</a>
                     </p>

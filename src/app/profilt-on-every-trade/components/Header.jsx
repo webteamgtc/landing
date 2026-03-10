@@ -27,7 +27,7 @@ export default function Landing2Header({className}) {
                 </div>
 
                 <span className="text-[12px] font-medium tracking-[0.2px] text-white">
-                    4.8 / 5
+                    4.0 / 5
                 </span>
             </div>
         </div>

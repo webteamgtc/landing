@@ -42,7 +42,7 @@ const ThankYouPage = () => {
                             <h2 className="HeadingH2 text-left">{`Success! You're All Set, (${user?.nickname})!`}</h2>
                             <p className="text text-left">{`Your account is almost ready to go.We've just sent a confirmation email to (${user?.email}). `}</p>
                             <p className="text text-left">  Check your inbox and click the verification link to complete your registration. </p>
-                            <p className="text text-left"> Once you verify, we'll log you into the GTC Client Area and you’ll be ready to make your first deposit and start trading gold with us! </p>
+                            <p className="text text-left"> Once you verify, we'll log you into the GTC Client Area and you’ll be ready to make your first deposit and Get Started with us! </p>
                             <p className="text text-left">  Need help ? Our support team is here for you.</p>
 
                             <p className="max-w-96 ">

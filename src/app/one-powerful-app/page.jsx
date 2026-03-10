@@ -6,11 +6,12 @@ import Landing2Media from "../profilt-on-every-trade/components/Landing2Media";
 import Landing2Opportunities from "../profilt-on-every-trade/components/Landing2Opportunities";
 import Landing2PrecisionPower from "../profilt-on-every-trade/components/Landing2PrecisionPower";
 import Landing2WhyWins from "../profilt-on-every-trade/components/Landing2WhyWins";
+import ReviewsSection from "../components/ReviewsSection";
 
 export const metadata = {
-  title: "Maximize Your Profits on Every Gold Trade | GTC",
+  title: "1 Million+ Traders. One Powerful App | GTC",
   description:
-    "Trade gold with tight spreads, fast execution, and pro-level tools. Join GTC and start trading today.",
+    "From advanced trading features to exclusive VIP benefits, enjoy a complete ecosystem built to support your trading goals.",
 };
 
 export default function Landing2Page() {
@@ -55,29 +56,38 @@ export default function Landing2Page() {
       )
     }
   ]
-  const copySection = {
-    title: "Copy Trading is Now More Flexible & Powerful Than Ever.",
+ const copySection = {
+    title: "Unlock a Smarter Way to Trade with GTC GO",
     columnsLeft: [
       {
-        title: "Private Domain Signals",
-        desc: "Shared securely by invitation link."
+        title: "Smarter Copy Trading",
+        desc: "Flexible, powerful and designed for real traders. Follow signals with custom cycles."
       },
       {
-        title: "Flexible Settlement Cycles",
-        desc: "Choose minute, hour, day, month, or year."
+        title: "High-quality Design",
+        desc: "Clean, intuitive and built to make every trading interaction smoother and faster."
+      },
+      {
+        title: "Essential Integrations",
+        desc: "Connect easily with key tools and services across your trading workflow."
       }
     ],
     columnRight: [
       {
-        title: "Social Trading Signals",
-        desc: "Discover and follow top-performing strategies"
+        title: "Essential Components",
+        desc: "All the core features you need for a complete, unified trading experience."
       },
       {
-        title: "Complete Fund Control",
-        desc: "Add funds freely and withdraw when trades are closed."
+        title: "Fully Customizable",
+        desc: "Adapt the platform to your style, preferences and trading strategies."
+      },
+       {
+        title: "Regular Free Updates",
+        desc: "Continuous improvements and new features rolled out with no extra cost."
       }
     ]
   }
+
 
   const cardSection = {
     title: "Everything You Need in One App.",
@@ -206,7 +216,7 @@ export default function Landing2Page() {
         variant="blue"
         headerItems={headerItems}
       />
-      <Landing2Media />
+      <ReviewsSection />
       <Landing2WhyWins data={copySection} />
       <HowItsWork data={howItsWork} />
       <Landing2PrecisionPower data={cardSection} />

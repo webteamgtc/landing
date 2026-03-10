@@ -5,19 +5,19 @@ import clsx from "clsx";
 
 const variants = {
   /** Main hero title (white on dark) */
-  hero: "text-[30px] md:text-[56px] text-center md:text-left font-semibold leading-[1.03] tracking-[-0.03em] text-white",
+  hero: "text-[30px] md:text-[56px] text-center md:text-left font-semibold leading-[1.09] tracking-[-0.03em] bg-gradient-to-r from-[#dcc8b2] via-secondary  from-10% to-[#dcc8b2] to-90% inline-block text-transparent bg-clip-text font-medium",
   /** Section title on dark background, centered */
   sectionDark:
-    "text-center text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-[#fff] md:text-[42px]",
+    "text-center text-[26px] font-extrabold leading-[1.19] tracking-[-0.02em] text-[#fff] md:text-[35px] bg-gradient-to-r from-[#dcc8b2] via-secondary  from-10% to-[#dcc8b2] to-90% inline-block text-transparent bg-clip-text",
   /** Section title on light background, centered */
   sectionLight:
-    "text-center text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-[#000] md:text-[42px]",
+    "text-center text-[26px] font-extrabold leading-[1.19] tracking-[-0.02em] text-[#000] md:text-[35px] max-w-lg mx-auto text-primary",
   /** Small uppercase label (e.g. GTCFX IN THE NEWS) */
   media:
-    "text-center text-base font-semibold uppercase tracking-[0.2em] text-[#1a1a1a] md:text-xl",
+    "text-center text-base font-extrabold uppercase tracking-[0.2em] text-[#1a1a1a] md:text-xl",
   /** Card title inside feature cards */
   card:
-    "text-[16px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#000] md:text-[19px]",
+    "text-[16px] font-extrabold leading-[1.2] tracking-[-0.02em] text-[#000] md:text-[20px] text-center",
   /** Subsection title (e.g. Instant Access), left-aligned */
   subsection:
     "text-2xl font-bold text-[#1a1a1a] md:text-3xl",

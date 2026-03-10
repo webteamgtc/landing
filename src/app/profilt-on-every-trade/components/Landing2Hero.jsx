@@ -30,27 +30,27 @@ export default function GoldTradeHero({ bgImage, hideImg, title, description, bt
 
         <div className="relative pt-6 md:pt-0">
           {/* hero content */}
-          <div className=" min-h-[90vh] flex flex-col">
+          <div className=" min-h-[70vh] flex flex-col">
             <div className="mt-2 flex-1 grid grid-cols-1 items-center md:grid-cols-12">
               {/* left content */}
-              <div className="col-span-7 text-center md:text-left">
+              <div className="col-span-6 text-center md:text-left">
                 <Heading as="h1" variant="hero" dangerouslySetInnerHTML={{ __html: title }}>
                 </Heading>
 
-                <p className="mt-8 text-center md:text-left text-[16px] font-normal md:text-[26px] leading-[1.16] text-[#E2E2E2]">
+                <p className="mt-8 text-center md:text-left text-[16px] font-normal md:text-[18px] leading-[1.6] text-[#E2E2E2]">
                   {description}
                 </p>
 
-                <Button className="mt-8 text-center md:text-left" size="md" variant={variant}>
+                <Button className="mt-8 text-center md:text-left py-3" size="md" variant={variant}>
                   {btnText}
                 </Button>
               </div>
 
               {/* right visual */}
               {!hideImg && (
-                <div className="relative flex justify-end col-span-5">
+                <div className="relative flex justify-end col-span-6 mt-6 md:mt-0">
                   <img
-                    src="/landing2-banner.svg"
+                    src="/ab/gold-banner.webp"
                     alt="Gold bars"
                     className="max-w-full object-contain"
                     draggable={false}

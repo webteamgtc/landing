@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import ReviewsSection from "../components/ReviewsSection";
 import Landing2Hero from "../profilt-on-every-trade/components/Landing2Hero";
 import Landing2InstantAccess from "../profilt-on-every-trade/components/Landing2InstantAccess";
 import Landing2Media from "../profilt-on-every-trade/components/Landing2Media";
@@ -7,9 +8,9 @@ import Landing2PrecisionPower from "../profilt-on-every-trade/components/Landing
 import Landing2WhyWins from "../profilt-on-every-trade/components/Landing2WhyWins";
 
 export const metadata = {
-    title: "Maximize Your Profits on Every Gold Trade | GTC",
+    title: "Trade With More Power With GTCFX",
     description:
-        "Trade gold with tight spreads, fast execution, and pro-level tools. Join GTC and start trading today.",
+        "Boost your trading potential with GTCFX Margin Bonus and open larger positions with confidence.",
 };
 
 export default function Landing2Page() {
@@ -78,7 +79,7 @@ export default function Landing2Page() {
 
     const opportunitiesData = {
         title: "Why Trade Small When You Can Trade Bigger?",
-        btn1Text: "Open Live Account",
+        btn1Text: "Get Started",
         btn2Varient: "secondary",
         btn2Text: "Try Free Demo",
         cards: [
@@ -105,7 +106,7 @@ export default function Landing2Page() {
     const cardSection = {
         title: "How to Activate Your Margin Bonus?",
         desc: "Follow a few simple steps and start trading with extra power in minutes.",
-        btnText: "Open Live Account",
+        btnText: "Get Started",
         varient: "primary",
         cards: [
             {
@@ -175,7 +176,7 @@ export default function Landing2Page() {
     const footerBanner = {
         title: "Ready to Trade with More Margin Power?",
         desc: "GTCFX credits your Margin Bonus quickly so you can enter the market without delay.",
-        btnText: "Open Live Account",
+        btnText: "Get Started",
         variant: "blue",
         footerText: "Processing times may vary depending on the chosen payment method."
     }
@@ -184,12 +185,12 @@ export default function Landing2Page() {
             <Landing2Hero bgImage="/landing-4-banner.svg" hideImg={true}
                 title="Trade With More Power With GTCFX."
                 description="Boost your trading potential with GTCFX Margin Bonus and open larger positions with confidence."
-                btnText="Open Live Account"
+                btnText="Get Started"
                 variant="blue"
                 headerItems={headerItems}
             />
             <Landing2Opportunities data={opportunitiesData} />
-            <Landing2Media />
+            <ReviewsSection />
             <Landing2WhyWins data={copySection} />
             <Landing2PrecisionPower data={cardSection} />
             <Landing2InstantAccess data={footerBanner} />

@@ -9,9 +9,9 @@ import Landing2WhyWins from "../profilt-on-every-trade/components/Landing2WhyWin
 import HowItsWork from "../one-powerful-app/components/HowItsWork";
 
 export const metadata = {
-    title: "Maximize Your Profits on Every Gold Trade | GTC",
+    title: "Turn your Trading into Real Profit. | GTCFX",
     description:
-        "Trade gold with tight spreads, fast execution, and pro-level tools. Join GTC and start trading today.",
+        "See why thousands of traders choose GTCFX to unlock better conditions, faster execution, and real trading power.",
 };
 
 export default function Landing2Page() {
@@ -88,7 +88,7 @@ export default function Landing2Page() {
 
     const opportunitiesData = {
         title: "Ready for better trading conditions?",
-        btn1Text: "Open Live Account",
+        btn1Text: "Get Started",
         btn1Varient: "blue",
         btn2Varient: "secondary",
         btn2Text: "Try Free Demo",
