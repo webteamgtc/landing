@@ -7,6 +7,7 @@ import Landing2Opportunities from "../profilt-on-every-trade/components/Landing2
 import Landing2PrecisionPower from "../profilt-on-every-trade/components/Landing2PrecisionPower";
 import Landing2WhyWins from "../profilt-on-every-trade/components/Landing2WhyWins";
 import HowItsWork from "../one-powerful-app/components/HowItsWork";
+import ReviewsSection from "../components/ReviewsSection";
 
 export const metadata = {
     title: "Turn your Trading into Real Profit. | GTCFX",
@@ -238,7 +239,7 @@ export default function Landing2Page() {
                 hasOverlay={true}
             />
             <Landing2Opportunities data={opportunitiesData} />
-            <Landing2Media />
+            <ReviewsSection />
             <TradingConditions />
             <Landing2WhyWins data={copySection} />
             <HowItsWork data={howItsWork} />
