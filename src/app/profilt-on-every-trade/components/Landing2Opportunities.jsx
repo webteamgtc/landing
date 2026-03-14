@@ -34,9 +34,9 @@ export default function GoldOpportunitySection({ data }) {
       <div className="mx-auto max-w-6xl">
         {/* heading */}
         <div className="text-center  flex flex-col items-center gap-8">
-          <Heading variant="sectionLight" as="h2">
+          <h2 className="mt-[10px] max-w-xl mx-auto text-[24px] font-extrabold leading-[1.3] text-primary capitalize md:text-[35px] md:leading-[1.2]">
             {data.title}
-          </Heading>
+          </h2>
 
        
            <div className="mx-auto grid max-w-[1120px] grid-cols-1 gap-6 md:grid-cols-3">

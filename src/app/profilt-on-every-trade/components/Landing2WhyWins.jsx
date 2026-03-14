@@ -12,8 +12,8 @@ export default function CopyTradingFlexibleSection({ data }) {
         >
 
             <div className="relative mx-auto max-w-6xl px-4 pt-8 sm:pt-16 pb-10 md:pb-0">
-                <div className="max-w-xl mx-auto text-center flex flex-col items-center gap-6">
-      <Heading variant="sectionDark" as="h2" className="!max-w-xl">
+                <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-6">
+      <Heading variant="sectionDark" as="h2" className="!max-w-lg"> 
                     {data?.title}
                 </Heading>
 
@@ -247,32 +247,5 @@ function AppleIcon() {
     );
 }
 
-function PlayIcon() {
-    return (
-        <svg
-            className="w-8 h-8 mr-2 text-white"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-        >
-            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-        </svg>
-    );
-}
 
-function AndroidIcon() {
-    return (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="text-[#5CFFB0]">
-            <path d="M7 9h10l1.3-2.2c.2-.3.1-.7-.2-.9-.3-.2-.7-.1-.9.2L15.9 8H8.1L6.8 6.1c-.2-.3-.6-.4-.9-.2-.3.2-.4.6-.2.9L7 9Zm-1 1v8c0 .6.4 1 1 1h1v-6h1v6h6v-6h1v6h1c.6 0 1-.4 1-1v-8H6Zm-1 1H4c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1h1v-7Zm16 0h-1v7h1c.6 0 1-.4 1-1v-5c0-.6-.4-1-1-1Z" />
-        </svg>
-    );
-}
 
-function DownloadIcon() {
-    return (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-white/80">
-            <path d="M12 3v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            <path d="m8 11 4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M5 21h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-    );
-}

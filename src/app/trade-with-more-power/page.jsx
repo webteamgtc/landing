@@ -53,29 +53,38 @@ export default function Landing2Page() {
             )
         }
     ]
-    const copySection = {
-        title: "Margin Bonus Built for Bigger Trades.",
-        columnsLeft: [
-            {
-                title: "Instant Withdrawals.",
-                desc: "Move profits without waiting."
-            },
-            {
-                title: "Protect Your Capital.",
-                desc: "Advanced risk control tools."
-            }
-        ],
-        columnRight: [
-            {
-                title: "Stay Above the Margin.",
-                desc: "Trade with added buffer support."
-            },
-            {
-                title: "Trade With Full Support.",
-                desc: "24/7 expert assistance ready."
-            }
-        ]
-    }
+   const copySection = {
+    title: "Unlock a Smarter Way to Trade with GTC GO",
+    columnsLeft: [
+      {
+        title: "Smarter Copy Trading",
+        desc: "Flexible, powerful and designed for real traders. Follow signals with custom cycles."
+      },
+      {
+        title: "High-quality Design",
+        desc: "Clean, intuitive and built to make every trading interaction smoother and faster."
+      },
+      {
+        title: "Essential Integrations",
+        desc: "Connect easily with key tools and services across your trading workflow."
+      }
+    ],
+    columnRight: [
+      {
+        title: "Essential Components",
+        desc: "All the core features you need for a complete, unified trading experience."
+      },
+      {
+        title: "Fully Customizable",
+        desc: "Adapt the platform to your style, preferences and trading strategies."
+      },
+       {
+        title: "Regular Free Updates",
+        desc: "Continuous improvements and new features rolled out with no extra cost."
+      }
+    ]
+  }
+
 
     const opportunitiesData = {
         title: "Why Trade Small When You Can Trade Bigger?",
@@ -182,7 +191,8 @@ export default function Landing2Page() {
     }
     return (
         <main className="min-h-screen bg-white text-primary">
-            <Landing2Hero bgImage="/landing-4-banner.svg" hideImg={true}
+            <Landing2Hero bgImage="/ab/bg-banner.webp" hideImg={false}
+            topImage='/ab/power.webp'
                 title="Trade With More Power With GTCFX."
                 description="Boost your trading potential with GTCFX Margin Bonus and open larger positions with confidence."
                 btnText="Get Started"

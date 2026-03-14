@@ -198,6 +198,7 @@ export default function Landing2Page() {
     <main className="min-h-screen bg-white text-primary">
       <Landing2Hero
       bgImage="/ab/bg-banner.webp" hideImg={false}
+      topImage='/ab/gold-banner.webp'
         title="Maximize Your Profits on Every Gold Trade."
         description="Trade gold with tight spreads, fast execution, and top-tier conditions built for serious traders. Take advantage of powerful platforms and pro-level tools. Stay ahead with reliable insights designed for gold trading success."
         btnText="Get Started"

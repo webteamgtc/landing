@@ -6,7 +6,7 @@ import Heading from "./Heading";
 import Button from "./Button";
 import Landing2Header from "./Header";
 
-export default function GoldTradeHero({ bgImage, hideImg, title, description, btnText, variant = "primary", headerItems ,hasOverlay=false}) {
+export default function GoldTradeHero({ bgImage, hideImg, topImage, title, description, btnText, variant = "primary", headerItems ,hasOverlay=false}) {
   const hasBgImage = Boolean(bgImage);
   return (
     <section
@@ -30,7 +30,7 @@ export default function GoldTradeHero({ bgImage, hideImg, title, description, bt
 
         <div className="relative pt-6 md:pt-0">
           {/* hero content */}
-          <div className=" min-h-[70vh] flex flex-col">
+          <div className="min-h-[48vh] md:min-h-[80vh] flex flex-col">
             <div className="mt-2 flex-1 grid grid-cols-1 items-center md:grid-cols-12">
               {/* left content */}
               <div className="col-span-6 text-center md:text-left">
@@ -50,7 +50,7 @@ export default function GoldTradeHero({ bgImage, hideImg, title, description, bt
               {!hideImg && (
                 <div className="relative flex justify-end col-span-6 mt-6 md:mt-0">
                   <img
-                    src="/ab/gold-banner.webp"
+                    src={topImage}
                     alt="Gold bars"
                     className="max-w-full object-contain"
                     draggable={false}
@@ -82,7 +82,7 @@ function FeatureItem({ icon, label }) {
       <span className="inline-flex md:h-[18px] md:w-[18px] h-[14px] w-[14px] items-center justify-center text-white/90">
         {icon}
       </span>
-      <span className="text-[12px] md:text-[16px] font-normal text-white">{label}</span>
+      <span className="text-[11px] md:text-[16px] font-normal text-white">{label}</span>
     </div>
   );
 }

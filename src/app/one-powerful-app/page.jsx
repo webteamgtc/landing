@@ -209,7 +209,7 @@ export default function Landing2Page() {
   }
   return (
     <main className="min-h-screen bg-white text-primary">
-      <Landing2Hero bgImage="/landing-3-banner.svg" hideImg={true}
+      <Landing2Hero bgImage="/ab/app-bg.webp" hideImg={true}
         title="1 Million+ Traders.<br/> One Powerful App."
         description="Experience trading without limits."
         btnText="Download App Now"
