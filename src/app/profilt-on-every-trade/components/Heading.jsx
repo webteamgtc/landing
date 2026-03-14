@@ -11,7 +11,7 @@ const variants = {
     "text-center text-[26px] font-extrabold leading-[1.19] tracking-[-0.02em] text-[#fff] md:text-[35px] bg-gradient-to-r from-[#dcc8b2] via-secondary  from-10% to-[#dcc8b2] to-90% inline-block text-transparent bg-clip-text",
   /** Section title on light background, centered */
   sectionLight:
-    "text-center text-[26px] font-extrabold leading-[1.19] tracking-[-0.02em] text-[#000] md:text-[35px] max-w-lg mx-auto text-primary",
+    "text-center text-[26px] font-extrabold leading-[1.19] tracking-[-0.02em] md:text-[35px] max-w-lg mx-auto md:text-primary",
   /** Small uppercase label (e.g. GTCFX IN THE NEWS) */
   media:
     "text-center text-base font-extrabold uppercase tracking-[0.2em] text-[#1a1a1a] md:text-xl",

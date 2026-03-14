@@ -29,7 +29,7 @@ export default function Landing2InstantAccess({ data }) {
         <div className="relative z-10">
           <div className="max-w-6xl  mx-auto">
             <div className="max-w-xl">
-              <Heading variant="sectionLight" as="h2" className="md:text-[#333333] !text-[#000]  text-left !max-w-xl !mx-auto">
+              <Heading variant="sectionLight" as="h2" className="md:text-primary text-[#fff]  text-left !max-w-xl !mx-auto">
                 {data?.title}
               </Heading>
               <p className="mt-4 text-lg font-normal leading-relaxed md:text-[#000000] text-[#fff]">
