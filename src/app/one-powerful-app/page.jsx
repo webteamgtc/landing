@@ -216,11 +216,13 @@ export default function Landing2Page() {
         variant="blue"
         headerItems={headerItems}
       />
-      <ReviewsSection />
+         <Landing2PrecisionPower data={cardSection} />
+
       <Landing2WhyWins data={copySection} />
-      <HowItsWork data={howItsWork} />
-      <Landing2PrecisionPower data={cardSection} />
+    
+        <HowItsWork data={howItsWork} />
       <Landing2InstantAccess data={footerBanner} />
+         <ReviewsSection />
       <Footer />
     </main>
   );

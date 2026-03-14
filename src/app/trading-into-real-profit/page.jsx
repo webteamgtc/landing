@@ -239,12 +239,13 @@ export default function Landing2Page() {
                 hasOverlay={true}
             />
             <Landing2Opportunities data={opportunitiesData} />
-            <ReviewsSection />
+      
             <TradingConditions />
             <Landing2WhyWins data={copySection} />
             <HowItsWork data={howItsWork} />
             <Landing2PrecisionPower data={cardSection} />
             <Landing2InstantAccess data={footerBanner} />
+                  <ReviewsSection />
             <Footer />
         </main>
     );

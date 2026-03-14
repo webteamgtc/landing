@@ -222,7 +222,7 @@ function SourceMark({ source }) {
 
 function ReviewCard({ r }) {
   return (
-    <div className="h-full w-[320px] rounded-2xl bg-white ring-1 ring-black/5">
+    <div className="h-full w-[320px] rounded-2xl bg-gray-100 ring-1 ring-black/5">
       <div className="flex h-full flex-col px-6 py-5">
         <div className="flex items-start justify-between gap-4">
           <Stars value={r.rating} />
@@ -288,7 +288,7 @@ export default function ReviewsSection() {
   const totalReviews = 45;
 
   return (
-    <section className="w-full py-10 md:py-14 bg-gray-100">
+    <section className="w-full py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-4">
         <div className="text-center">
           <h2 className="mt-[10px] max-w-xl mx-auto text-[24px] font-extrabold leading-[1.3] text-primary capitalize md:text-[35px] md:leading-[1.2]">
@@ -319,7 +319,7 @@ export default function ReviewsSection() {
           Showing out of {totalReviews} reviews across TradingView, App Store, Google Play and Trustpilot.
         </p>
 
-        <div className="mt-10 rounded-2xl bg-white px-4 py-6 shadow-[0_6px_22px_rgba(0,0,0,0.06)] ring-1 ring-black/5">
+        <div className="mt-10 rounded-2xl bg-gray-100 px-4 py-6 shadow-[0_6px_22px_rgba(0,0,0,0.06)] ring-1 ring-black/6">
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-0">
             {PLATFORM_RATINGS.map((p, idx) => (
               <div

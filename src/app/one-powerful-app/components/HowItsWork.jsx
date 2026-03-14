@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function HowItsWork({ data }) {
     return (
-        <section className="bg-white pt-6 md:pt-14">
+        <section className="bg-white py-6 md:py-14">
             <Container>
                 {/* Header */}
                 <div className="text-center max-w-full mx-auto mb-6 md:mb-16">

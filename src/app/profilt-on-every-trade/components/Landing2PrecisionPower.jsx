@@ -68,7 +68,7 @@ export default function Landing2PrecisionPower({data}) {
     <section className="bg-white py-8 md:py-16">
       <Container>
         <div className="text-center">
-          <Heading variant="sectionLight" as="h2" className="!max-w-lg">
+          <Heading variant="sectionLight" as="h2" className="!max-w-xl">
             {data?.title}
           </Heading>
           <p className="mx-auto mt-2 max-w-4xl md:text-lg text-base font-normal leading-relaxed text-[#A5A5A5]">

@@ -204,10 +204,11 @@ export default function Landing2Page() {
         headerItems={headerItems}
       />
       <Landing2Opportunities data={opportunitiesData} />
-      <ReviewsSection />
       <Landing2WhyWins data={copySection} />
       <Landing2PrecisionPower data={cardSection} />
       <Landing2InstantAccess data={footerBanner} />
+            <ReviewsSection />
+
       <Footer />
     </main>
   );
