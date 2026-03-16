@@ -231,14 +231,15 @@ export default function Landing2Page() {
     return (
         <main className="min-h-screen bg-white text-primary">
             <Landing2Hero
-                bgImage="/ab/bg-banner.webp" hideImg={false}
-                topImage='/real-profit.png'
+                bgImage="/real-profit-banner.jpg" hideImg={true}
+                topImage='/real-profit-banner.jpeg'
                 title="Turn your Trading into Real Profit."
                 description="See why thousands of traders choose GTCFX to unlock better conditions, faster execution, and real trading power."
                 btnText="Start Trading Now"
                 variant="blue"
                 headerItems={headerItems}
-                hasOverlay={true}
+                hasOverlay={false}
+                mobileOverlay
             />
             <Landing2Opportunities data={opportunitiesData} />
 
