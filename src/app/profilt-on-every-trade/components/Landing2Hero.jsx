@@ -6,7 +6,7 @@ import Heading from "./Heading";
 import Button from "./Button";
 import Landing2Header from "./Header";
 
-export default function GoldTradeHero({ bgImage, hideImg, topImage, title, description, btnText, variant = "primary", headerItems ,hasOverlay=false}) {
+export default function GoldTradeHero({ bgImage, hideImg, topImage, title, description, btnText, variant = "primary", headerItems, hasOverlay = false, mobileOverlay = false }) {
   const hasBgImage = Boolean(bgImage);
   return (
     <section
@@ -17,6 +17,12 @@ export default function GoldTradeHero({ bgImage, hideImg, topImage, title, descr
           : { background: "linear-gradient(180deg, #293B93 5.22%, #0D153A 99.18%)" }
       }
     >
+      {mobileOverlay && (
+        <div
+          className="absolute block md:hidden inset-0 z-0 bg-black/50"
+          aria-hidden
+        />
+      )}
       {/* Overlay for text readability (only when using bg image) */}
       {hasOverlay && (
         <div
@@ -65,7 +71,7 @@ export default function GoldTradeHero({ bgImage, hideImg, topImage, title, descr
             {/* features */}
             <div className="grid grid-cols-2 gap-y-4 py-8 md:grid-cols-4">
               <FeatureItem icon={headerItems?.[0]?.icon} label={headerItems?.[0]?.title} />
-              <FeatureItem icon={headerItems?.[1]?.icon} label={headerItems?.[1]?.title}/>
+              <FeatureItem icon={headerItems?.[1]?.icon} label={headerItems?.[1]?.title} />
               <FeatureItem icon={headerItems?.[2]?.icon} label={headerItems?.[2]?.title} />
               <FeatureItem icon={headerItems?.[3]?.icon} label={headerItems?.[3]?.title} />
             </div>
