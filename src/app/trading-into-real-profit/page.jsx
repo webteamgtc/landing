@@ -230,7 +230,9 @@ export default function Landing2Page() {
     }
     return (
         <main className="min-h-screen bg-white text-primary">
-            <Landing2Hero bgImage="/landing5-banner.svg" hideImg={true}
+            <Landing2Hero
+                bgImage="/ab/bg-banner.webp" hideImg={false}
+                topImage='/real-profit.png'
                 title="Turn your Trading into Real Profit."
                 description="See why thousands of traders choose GTCFX to unlock better conditions, faster execution, and real trading power."
                 btnText="Start Trading Now"
@@ -239,13 +241,13 @@ export default function Landing2Page() {
                 hasOverlay={true}
             />
             <Landing2Opportunities data={opportunitiesData} />
-      
+
             <TradingConditions />
             <Landing2WhyWins data={copySection} />
             <HowItsWork data={howItsWork} />
             <Landing2PrecisionPower data={cardSection} />
             <Landing2InstantAccess data={footerBanner} />
-                  <ReviewsSection />
+            <ReviewsSection />
             <Footer />
         </main>
     );
