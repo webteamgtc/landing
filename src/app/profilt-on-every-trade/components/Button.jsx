@@ -1,7 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import clsx from "clsx";
+import { useSearchParams } from "next/navigation";
+
+const GTC_USER_URL = "https://web.mygtc.app/user";
 
 const variants = {
   primary:
@@ -20,12 +23,32 @@ const sizes = {
   lg: "px-6 py-3 text-base",
 };
 
-export default function Button({
+function buildGtcUserUrl(ref, code, searchParams) {
+  const url = new URL(GTC_USER_URL);
+  url.searchParams.set("redirect", "%252Fdashboard");
+  url.searchParams.set("lang", "en");
+  if (code) url.searchParams.set("code", code);
+  if (ref) url.searchParams.set("ref", ref);
+  const originUrl = searchParams.get("origin_url");
+  if (originUrl) url.searchParams.set("origin_url", originUrl);
+  return url.toString();
+}
+
+export default function Button(props) {
+  return (
+    <Suspense fallback={<ButtonFallback {...props} />}>
+      <ButtonWithParams {...props} />
+    </Suspense>
+  );
+}
+
+function ButtonFallback({
   variant = "primary",
   size = "md",
   className,
   children,
   as: Tag = "button",
+  onClick,
   ...props
 }) {
   return (
@@ -36,10 +59,70 @@ export default function Button({
         sizes[size],
         className
       )}
+      onClick={onClick}
+      type={Tag === "button" ? "button" : undefined}
       {...props}
     >
       {children}
-        <svg
+      <svg
+        width="9"
+        height="14"
+        viewBox="0 0 9 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M1 1L7 7L1 13" stroke="#fff" strokeWidth="3" />
+      </svg>
+    </Tag>
+  );
+}
+
+function ButtonWithParams({
+  variant = "primary",
+  size = "md",
+  className,
+  children,
+  as: Tag = "button",
+  onClick,
+  openGtcOnClick = true,
+  ...props
+}) {
+  const searchParams = useSearchParams();
+  const ref = searchParams.get("ref");
+  const code = searchParams.get("code");
+
+  const handleClick = (e) => {
+    if (ref || code) {
+      const id = ref || code;
+      const gtcUrl = buildGtcUserUrl(ref, code, searchParams);
+
+      console.log("[GTC] ref:", ref);
+      console.log("[GTC] code:", code);
+      console.log("[GTC] id:", id);
+      console.log("[GTC] URL:", gtcUrl);
+
+      if (openGtcOnClick) {
+        window.open(gtcUrl, "_blank", "noopener,noreferrer");
+      }
+    }
+
+    onClick?.(e);
+  };
+
+  return (
+    <Tag
+      className={clsx(
+        "inline-flex items-center gap-4 justify-center rounded-[3px] font-semibold transition",
+        variants[variant],
+        sizes[size],
+        className
+      )}
+      onClick={handleClick}
+      type={Tag === "button" ? "button" : undefined}
+      {...props}
+    >
+      {children}
+      <svg
         width="9"
         height="14"
         viewBox="0 0 9 14"
