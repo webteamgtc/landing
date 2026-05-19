@@ -41,7 +41,7 @@ export function buildRegFormUrl(ref, code, searchParams) {
   const originUrl = searchParams?.get("origin_url");
   if (originUrl) params.set("origin_url", originUrl);
   const qs = params.toString();
-  return qs ? `/reg-form?${qs}` : "/reg-form";
+  return qs ? `/create-account?${qs}` : "/create-account";
 }
 
 export default function Button(props) {

@@ -231,7 +231,7 @@ export default function RegFormPanel() {
         />
       </div>
 
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 text-center">
+      <h1 className="text-base sm:text-2xl font-bold text-gray-900 text-center">
         Sign up for a live account
       </h1>
       <p className="text-gray-500 text-sm mt-2 mb-6 lg:mb-8 text-center ">
