@@ -2,7 +2,7 @@
 
 import React, { Suspense } from "react";
 import clsx from "clsx";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const GTC_USER_URL = "https://web.mygtc.app/user";
 
@@ -32,6 +32,16 @@ function buildGtcUserUrl(ref, code, searchParams) {
   const originUrl = searchParams.get("origin_url");
   if (originUrl) url.searchParams.set("origin_url", originUrl);
   return url.toString();
+}
+
+export function buildRegFormUrl(ref, code, searchParams) {
+  const params = new URLSearchParams();
+  if (ref) params.set("ref", ref);
+  if (code) params.set("code", code);
+  const originUrl = searchParams?.get("origin_url");
+  if (originUrl) params.set("origin_url", originUrl);
+  const qs = params.toString();
+  return qs ? `/reg-form?${qs}` : "/reg-form";
 }
 
 export default function Button(props) {
@@ -83,27 +93,29 @@ function ButtonWithParams({
   className,
   children,
   as: Tag = "button",
+  href,
   onClick,
-  openGtcOnClick = true,
+  redirectToRegForm = !href,
+  openGtcOnClick = false,
   ...props
 }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const ref = searchParams.get("ref");
   const code = searchParams.get("code");
+  const regFormUrl = buildRegFormUrl(ref, code, searchParams);
 
   const handleClick = (e) => {
-    if (ref || code) {
-      const id = ref || code;
+    if (redirectToRegForm) {
+      e.preventDefault?.();
+      router.push(regFormUrl);
+      onClick?.(e);
+      return;
+    }
+
+    if (openGtcOnClick && (ref || code)) {
       const gtcUrl = buildGtcUserUrl(ref, code, searchParams);
-
-      console.log("[GTC] ref:", ref);
-      console.log("[GTC] code:", code);
-      console.log("[GTC] id:", id);
-      console.log("[GTC] URL:", gtcUrl);
-
-      if (openGtcOnClick) {
-        window.open(gtcUrl, "_blank", "noopener,noreferrer");
-      }
+      window.open(gtcUrl, "_blank", "noopener,noreferrer");
     }
 
     onClick?.(e);
