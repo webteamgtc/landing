@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const GTC_GET_COUNTRY_URL = `${process.env.GTC_API_URL}/get_country`;
+const GTC_GET_COUNTRY_URL = `https://web.mygtc.app/api/pub/get_country`;
 
 export async function POST() {
   try {
