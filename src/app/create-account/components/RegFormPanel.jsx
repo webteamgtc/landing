@@ -112,7 +112,8 @@ export default function RegFormPanel() {
           formik.resetForm();
           setShowOtp(false);
           setIsDisable(true);
-          router.push("/thank-you");
+          toast.success(res?.data?.message || "Registration successful!");
+          // router.push("/thank-you");
         } else {
           toast.error(res?.data?.message || "Registration failed");
         }
