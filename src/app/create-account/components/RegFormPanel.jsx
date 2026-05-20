@@ -4,12 +4,22 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import OtpInput from "react-otp-input";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { useLocationDetail } from "../../context/useLocationDetail";
+
+function getPartnerCodeFromParams(searchParams) {
+  if (!searchParams) return "";
+  return (
+    searchParams.get("code") ||
+    searchParams.get("ref") ||
+    searchParams.get("partner_id") ||
+    searchParams.get("partner_code") ||
+    searchParams.get("ib") ||
+    ""
+  );
+}
 
 function splitName(fullName) {
   const parts = fullName.trim().split(/\s+/).filter(Boolean);
@@ -31,25 +41,37 @@ function FieldError({ touched, error }) {
   return <p className="text-red-500 text-xs mt-1">{error}</p>;
 }
 
-function inputClass(touched, error) {
+function inputClass(touched, error, extra = "") {
   const base =
-    "w-full pl-12 py-3.5 border rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2";
-  return touched && error
-    ? `${base} border-red-500 focus:ring-red-500/30 focus:border-red-500`
-    : `${base} border-gray-200 focus:ring-[#1e3a6e]/30 focus:border-[#1e3a6e]`;
+    "w-full h-[48px] pl-12 pr-4 border rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2";
+  const state =
+    touched && error
+      ? "border-red-500 focus:ring-red-500/30 focus:border-red-500"
+      : "border-gray-200 focus:ring-[#1e3a6e]/30 focus:border-[#1e3a6e]";
+  return `${base} ${state} ${extra}`.trim();
+}
+
+function plainInputClass(touched, error) {
+  const base =
+    "w-full h-[48px] px-4 border rounded-lg text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2";
+  const state =
+    touched && error
+      ? "border-red-500 focus:ring-red-500/30 focus:border-red-500"
+      : "border-gray-200 focus:ring-[#1e3a6e]/30 focus:border-[#1e3a6e]";
+  return `${base} ${state}`.trim();
 }
 
 export default function RegFormPanel() {
+  const searchParams = useSearchParams();
   const { countryData } = useLocationDetail();
-  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [otpLoading, setOtpLoading] = useState(false);
-  const [showOtp, setShowOtp] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [isDisable, setIsDisable] = useState(true);
   const [codeSent, setCodeSent] = useState(false);
+  const [partnerCodeOpen, setPartnerCodeOpen] = useState(false);
   const [gtcCountries, setGtcCountries] = useState([]);
   const gtcCountriesRef = useRef([]);
+  const urlPartnerCode = getPartnerCodeFromParams(searchParams);
 
   useEffect(() => {
     gtcCountriesRef.current = gtcCountries;
@@ -64,20 +86,22 @@ export default function RegFormPanel() {
       country: "",
       area: "",
       otp: "",
+      partnerCode: urlPartnerCode,
       terms: false,
     },
+    enableReinitialize: true,
     validationSchema: Yup.object({
       nickname: Yup.string()
         .matches(/^[A-Za-z\s]+$/, "Name can only contain letters.")
         .required("Name is required"),
       email: Yup.string().email("Invalid email address").required("Email is required"),
       country: Yup.string().required("Country is required"),
-      phone: Yup.string().matches(/^\d{6,15}$/, "Enter a valid phone number (digits only)"),
       password: Yup.string()
         .min(8, "At least 8 characters")
         .matches(/^(?=.*[A-Za-z])(?=.*\d)/, "Must contain letters and numbers")
         .required("Password is required"),
       otp: Yup.string().length(6, "OTP must be 6 digits").required("OTP is required"),
+      partnerCode: Yup.string(),
       terms: Yup.bool().oneOf([true], "Please accept the terms and conditions"),
     }),
     onSubmit: async (values) => {
@@ -98,6 +122,9 @@ export default function RegFormPanel() {
         password: values.password,
         lastname,
         firstname,
+        ...(values.partnerCode?.trim()
+          ? { ref: values.partnerCode.trim(), invite_code: values.partnerCode.trim() }
+          : {}),
       };
 
       setLoading(true);
@@ -110,10 +137,7 @@ export default function RegFormPanel() {
             JSON.stringify({ ...values, firstname, lastname })
           );
           formik.resetForm();
-          setShowOtp(false);
-          setIsDisable(true);
-          toast.success(res?.data?.message || "Registration successful!");
-          // router.push("/thank-you");
+          setCodeSent(false);
         } else {
           toast.error(res?.data?.message || "Registration failed");
         }
@@ -124,6 +148,12 @@ export default function RegFormPanel() {
       }
     },
   });
+
+  useEffect(() => {
+    if (urlPartnerCode) {
+      setPartnerCodeOpen(true);
+    }
+  }, [urlPartnerCode]);
 
   useEffect(() => {
     axios
@@ -169,7 +199,6 @@ export default function RegFormPanel() {
     }
 
     setOtpLoading(true);
-    setShowOtp(false);
 
     try {
       await axios.post(`/api/gtc/get-country`);
@@ -189,57 +218,31 @@ export default function RegFormPanel() {
       });
 
       if (codeRes?.data?.code === 200) {
-        setShowOtp(true);
         setCodeSent(true);
         toast.success(codeRes?.data?.message || "Otp send successfully!");
-        setIsDisable(false);
       } else {
         toast.error(codeRes?.data?.message || "Failed to send OTP");
-        setIsDisable(true);
       }
     } catch (err) {
       toast.error(err?.response?.data?.message || "Failed to send OTP");
-      setIsDisable(true);
     } finally {
       setOtpLoading(false);
     }
   };
 
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
-    const update = () => setIsDesktop(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  const canRegisterMobile =
-    codeSent && formik.values.otp.length === 6 && formik.values.terms;
-  const registerDisabled = loading || (isDesktop ? isDisable : !canRegisterMobile);
+  const registerDisabled =
+    loading ||
+    !codeSent ||
+    formik.values.otp.length !== 6 ||
+    !formik.values.terms;
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <div className="flex flex-col items-center text-center mb-6 lg:hidden">
-        <Image
-          src="/logo-2024.webp"
-          alt="GTC"
-          width={160}
-          height={64}
-          className="h-12 w-auto object-contain"
-          priority
-        />
-      </div>
-
-      <h1 className="text-base sm:text-2xl font-bold text-gray-900 text-center">
-        Sign up for a live account
+    <div className="w-full max-w-[480px] mx-auto">
+      <h1 className="text-2xl sm:text-[28px] font-bold text-gray-900 text-center mb-8">
+        Welcome to GTCFX
       </h1>
-      <p className="text-gray-500 text-sm mt-2 mb-6 lg:mb-8 text-center ">
-        Fill in the details below to get started
-      </p>
 
-      <form onSubmit={formik.handleSubmit} className="space-y-3.5 lg:space-y-4">
+      <form onSubmit={formik.handleSubmit} className="space-y-4">
         <div>
           <div className="relative">
             <FieldIcon>
@@ -250,13 +253,12 @@ export default function RegFormPanel() {
             <input
               type="text"
               placeholder="Name"
-              className={`${inputClass(formik.touched.nickname, formik.errors.nickname)} pr-4`}
+              className={inputClass(formik.touched.nickname, formik.errors.nickname)}
               {...formik.getFieldProps("nickname")}
             />
           </div>
           <FieldError touched={formik.touched.nickname} error={formik.errors.nickname} />
         </div>
-
 
 
         <div>
@@ -273,7 +275,7 @@ export default function RegFormPanel() {
             <input
               type="email"
               placeholder="Email"
-              className={`${inputClass(formik.touched.email, formik.errors.email)} pr-4`}
+              className={inputClass(formik.touched.email, formik.errors.email)}
               {...formik.getFieldProps("email")}
             />
           </div>
@@ -295,15 +297,15 @@ export default function RegFormPanel() {
               type="text"
               inputMode="numeric"
               maxLength={6}
-              placeholder="Verification Code"
-              className={`${inputClass(formik.touched.otp, formik.errors.otp)} pr-[6.5rem]`}
+              placeholder="Email Verification Code OTP"
+              className={inputClass(formik.touched.otp, formik.errors.otp, "pr-[7.5rem]")}
               {...formik.getFieldProps("otp")}
             />
             <button
               type="button"
               onClick={sendVerificationCode}
               disabled={otpLoading}
-              className="absolute right-3 top-1/2 -translate-y-1/2 pl-3 border-l border-gray-200 text-[#1e3a6e] text-sm font-medium hover:underline disabled:opacity-60"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#1e3a6e] text-sm font-medium hover:underline disabled:opacity-60 whitespace-nowrap"
             >
               {otpLoading ? "Sending.." : "Send Code"}
             </button>
@@ -325,7 +327,7 @@ export default function RegFormPanel() {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className={`${inputClass(formik.touched.password, formik.errors.password)} pr-12`}
+              className={inputClass(formik.touched.password, formik.errors.password, "pr-12")}
               {...formik.getFieldProps("password")}
             />
             <button
@@ -355,31 +357,12 @@ export default function RegFormPanel() {
             </button>
           </div>
           <FieldError touched={formik.touched.password} error={formik.errors.password} />
-          <p className="text-xs text-gray-400 mt-1">At least 8 characters with letters and numbers</p>
+          <p className="text-xs text-gray-400 mt-1.5">
+            At least 8 characters with letters and numbers
+          </p>
         </div>
 
-        <div className="hidden lg:block">
-          <div className="relative">
-            <FieldIcon>
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                />
-              </svg>
-            </FieldIcon>
-            <input
-              type="tel"
-              inputMode="numeric"
-              placeholder={formik.values.area ? `Phone (+${formik.values.area})` : "Phone"}
-              className={`${inputClass(formik.touched.phone, formik.errors.phone)} pr-4`}
-              {...formik.getFieldProps("phone")}
-            />
-          </div>
-          <FieldError touched={formik.touched.phone} error={formik.errors.phone} />
-        </div>
-
+        
         <div>
           <div className="relative">
             <FieldIcon>
@@ -397,7 +380,7 @@ export default function RegFormPanel() {
               onChange={handleCountryChange}
               onBlur={formik.handleBlur}
               disabled={sortedCountries.length === 0}
-              className={`${inputClass(formik.touched.country, formik.errors.country)} pr-10 appearance-none bg-white invalid:text-gray-400 disabled:bg-gray-50`}
+              className={`${inputClass(formik.touched.country, formik.errors.country, "pr-10 appearance-none bg-white invalid:text-gray-400 disabled:bg-gray-50")}`}
             >
               <option value="" disabled>
                 {sortedCountries.length === 0 ? "Loading countries..." : "Country Selection"}
@@ -418,7 +401,40 @@ export default function RegFormPanel() {
         </div>
 
         <div>
-          <label className="flex items-start gap-3 cursor-pointer pt-1">
+          <button
+            type="button"
+            onClick={() => setPartnerCodeOpen((open) => !open)}
+            className="flex w-full items-center justify-between text-sm text-gray-700 mb-2"
+            aria-expanded={partnerCodeOpen}
+          >
+            <span>
+              Partner code <span className="text-gray-400">(optional)</span>
+            </span>
+            <svg
+              className={`w-4 h-4 text-gray-500 transition-transform ${partnerCodeOpen ? "rotate-180" : ""}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
+          {partnerCodeOpen && (
+            <input
+              type="text"
+              name="partnerCode"
+              placeholder=""
+              value={formik.values.partnerCode}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className={plainInputClass(formik.touched.partnerCode, formik.errors.partnerCode)}
+            />
+          )}
+        </div>
+
+        <div className="pt-1">
+          <label className="flex items-start gap-3 cursor-pointer">
             <input
               type="checkbox"
               name="terms"
@@ -426,7 +442,7 @@ export default function RegFormPanel() {
               checked={formik.values.terms}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              className="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#0a2540] focus:ring-[#1e3a6e]"
+              className="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#1e3a6e] focus:ring-[#1e3a6e]"
             />
             <span
               className={`text-sm leading-snug ${formik.touched.terms && formik.errors.terms ? "text-red-500" : "text-gray-600"}`}
@@ -434,7 +450,7 @@ export default function RegFormPanel() {
               I agree to the{" "}
               <a
                 href="https://www.gtcfx.com/terms"
-                className="text-[#1e3a6e] hover:underline font-medium"
+                className="font-semibold text-[#1e3a6e] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -443,7 +459,7 @@ export default function RegFormPanel() {
               and{" "}
               <a
                 href="https://www.gtcfx.com/privacy"
-                className="text-[#1e3a6e] hover:underline font-medium"
+                className="font-semibold text-[#1e3a6e] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -457,7 +473,7 @@ export default function RegFormPanel() {
         <button
           type="submit"
           disabled={registerDisabled}
-          className="w-full py-3.5 rounded-full bg-[#1e3a6e] text-white font-semibold text-base hover:bg-[#0d2f52] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2 lg:rounded-lg"
+          className="w-full h-[48px] rounded-full bg-[#1e3a6e] text-white font-semibold text-base hover:bg-[#0d2f52] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2"
         >
           {loading ? "Submitting.." : "Register"}
         </button>
@@ -467,9 +483,9 @@ export default function RegFormPanel() {
         Already have an account?{" "}
         <Link
           href="https://mygtcportal.com/login"
-          className="text-[#1e3a6e] underline font-medium hover:text-[#0d2f52]"
+          className="text-[#1e3a6e] underline hover:text-secondary"
         >
-          Click here to login
+          Click here to login in
         </Link>
       </p>
     </div>
