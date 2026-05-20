@@ -68,7 +68,7 @@ export default function RegFormPanel() {
   const [otpLoading, setOtpLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [codeSent, setCodeSent] = useState(false);
-  const [partnerCodeOpen, setPartnerCodeOpen] = useState(true);
+  const [partnerCodeOpen, setPartnerCodeOpen] = useState(false);
   const [gtcCountries, setGtcCountries] = useState([]);
   const gtcCountriesRef = useRef([]);
   const urlPartnerCode = getPartnerCodeFromParams(searchParams);
@@ -403,13 +403,22 @@ export default function RegFormPanel() {
         <div>
           <button
             type="button"
-             className="flex w-full items-center justify-between text-sm text-gray-700 mb-2"
+            onClick={() => setPartnerCodeOpen((open) => !open)}
+            className="flex w-full items-center justify-between text-sm text-gray-700 mb-2"
             aria-expanded={partnerCodeOpen}
           >
             <span>
               Partner code <span className="text-gray-400">(optional)</span>
             </span>
-     
+            <svg
+              className={`w-4 h-4 text-gray-500 transition-transform ${partnerCodeOpen ? "rotate-180" : ""}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            </svg>
           </button>
           {partnerCodeOpen && (
             <input
@@ -441,7 +450,7 @@ export default function RegFormPanel() {
               I agree to the{" "}
               <a
                 href="https://www.gtcfx.com/terms"
-                className="font-semibold text-[#1e3a6e]  hover:text-secondary"
+                className="font-semibold text-[#1e3a6e] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -450,7 +459,7 @@ export default function RegFormPanel() {
               and{" "}
               <a
                 href="https://www.gtcfx.com/privacy"
-                className="font-semibold text-[#1e3a6e]  hover:text-secondary"
+                className="font-semibold text-[#1e3a6e] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -474,7 +483,7 @@ export default function RegFormPanel() {
         Already have an account?{" "}
         <Link
           href="https://mygtcportal.com/login"
-          className="text-[#1e3a6e]  underline hover:text-secondary"
+          className="text-[#1e3a6e] underline hover:text-secondary"
         >
           Click here to login in
         </Link>
