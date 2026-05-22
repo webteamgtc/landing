@@ -21,6 +21,11 @@ function getPartnerCodeFromParams(searchParams) {
   );
 }
 
+function hasCodeOrRefParam(searchParams) {
+  if (!searchParams) return false;
+  return !!(searchParams.get("code") || searchParams.get("ref"));
+}
+
 function splitName(fullName) {
   const parts = fullName.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return { firstname: "", lastname: "" };
@@ -72,6 +77,7 @@ export default function RegFormPanel() {
   const [gtcCountries, setGtcCountries] = useState([]);
   const gtcCountriesRef = useRef([]);
   const urlPartnerCode = getPartnerCodeFromParams(searchParams);
+  const partnerCodeReadOnly = hasCodeOrRefParam(searchParams);
 
   useEffect(() => {
     gtcCountriesRef.current = gtcCountries;
@@ -428,7 +434,8 @@ export default function RegFormPanel() {
               value={formik.values.partnerCode}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              className={plainInputClass(formik.touched.partnerCode, formik.errors.partnerCode)}
+              readOnly={partnerCodeReadOnly}
+              className={`${plainInputClass(formik.touched.partnerCode, formik.errors.partnerCode)} ${partnerCodeReadOnly ? "bg-gray-50 cursor-not-allowed" : ""}`}
             />
           )}
         </div>
