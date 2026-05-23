@@ -6,7 +6,7 @@ import Heading from "./Heading";
 import Button from "./Button";
 import Landing2Header from "./Header";
 
-export default function GoldTradeHero({ bgImage, hideImg, topImage, title, description, btnText, variant = "primary", headerItems, hasOverlay = false, mobileOverlay = false }) {
+export default function GoldTradeHero({ bgImage, hideImg, topImage, title, description, btnText, variant = "primary", headerItems, hasOverlay = false, mobileOverlay = false, isApp = false }) {
   const hasBgImage = Boolean(bgImage);
   return (
     <section
@@ -47,7 +47,9 @@ export default function GoldTradeHero({ bgImage, hideImg, topImage, title, descr
                   {description}
                 </p>
 
-                <Button className="mt-8 text-center md:text-left py-3" size="md" variant={variant}>
+                <Button className="mt-8 text-center md:text-left py-3" size="md" variant={variant}
+                  isApp={isApp}
+                >
                   {btnText}
                 </Button>
               </div>

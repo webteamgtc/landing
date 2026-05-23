@@ -6,7 +6,7 @@ import Container from "./Container";
 import Heading from "./Heading";
 import Button from "./Button";
 
-export default function Landing2InstantAccess({ data }) {
+export default function Landing2InstantAccess({ data ,isApp}) {
   return (
     <div className=" relative">
       <section className=" max-w-6xl px-4 py-8  mx-auto flex items-center min-h-[270px] w-full overflow-hidden md:min-h-[500px] md:py-24">
@@ -36,7 +36,7 @@ export default function Landing2InstantAccess({ data }) {
                 {data?.desc}
               </p>
               <div className="md:mt-6 mt-4">
-                <Button size="md" variant={data?.variant}>
+                <Button size="md" variant={data?.variant} isApp={isApp}>
                   {data?.btnText}
                 </Button>
               </div>

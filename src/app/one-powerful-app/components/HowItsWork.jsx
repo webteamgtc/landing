@@ -6,7 +6,7 @@ import Heading from "../../profilt-on-every-trade/components/Heading";
 import Button from "../../profilt-on-every-trade/components/Button";
 import Image from "next/image";
 
-export default function HowItsWork({ data }) {
+export default function HowItsWork({ data, isApp = false }) {
     return (
         <section className="bg-white py-6 md:py-14">
             <Container>
@@ -18,7 +18,7 @@ export default function HowItsWork({ data }) {
                     <p className="text-gray-600 text-sm md:text-lg md:mb-6 mb-4">
                         {data?.desc}
                     </p>
-                    <Button variant={data?.variant} size="lg" as="a" href="#download">
+                    <Button variant={data?.variant} size="lg"  isApp={isApp}>
                         {data?.btnText}
                     </Button>
                 </div>

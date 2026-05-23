@@ -44,7 +44,7 @@ export default function TradingConditions() {
           <p className="text-[#D1D1D1] text-sm md:text-lg md:mb-8 mb-6">
             The right trading conditions can change your results faster than you think.
           </p>
-          <Button variant="primary" size="lg" as="a" href="#start-trading">
+          <Button variant="primary" size="lg" >
             Start Trading Now
           </Button>
         </div>
