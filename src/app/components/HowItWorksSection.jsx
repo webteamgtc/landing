@@ -1,117 +1,92 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
-
+import Container from "../../profilt-on-every-trade/components/Container";
+import Heading from "../../profilt-on-every-trade/components/Heading";
+import Button from "../../profilt-on-every-trade/components/Button";
+import Image from "next/image";
 
 const features = [
-  {
-    title: "Download the App",
-    description: "Install GTC Go and log in securely.",
-    icon: (
-      <svg
-        className="w-6 h-6 text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M5 13l4 4L19 7"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Start Exploring Features",
-    description: "Trade, track rewards, and follow signals.",
-    icon: (
-      <svg
-        className="w-6 h-6 text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M13 10V3L4 14h7v7l9-11h-7z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Set Up Your Profile",
-    description: "Link accounts and personalize your preferences.",
-    icon: (
-      <svg
-        className="w-6 h-6 text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M5.121 17.804A11.955 11.955 0 0112 15c2.485 0 4.785.776 6.879 2.104M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-      </svg>
-    ),
-  },
+    {
+        title: "Download the App",
+        description: "Install GTC Go and log in securely.",
+        icon: "/icon1.svg",
+        height: "h-40",
+    },
+    {
+        title: "Set Up Your Profile",
+        description: "Link accounts and personalize your preferences.",
+        icon: "/icon2.svg",
+        height: "h-48",
+    },
+    {
+        title: "Start Exploring Features",
+        description: "Trade, track rewards, and follow signals.",
+        icon: "/icon3.svg",
+        height: "h-96",
+    },
 ];
 
-const HowItWorksSection = () => {
-  return (
-    <section className="bg-gray-50 py-20">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-center lg:items-start gap-10">
-        {/* Left Content */}
-        <div className="lg:w-1/2 flex flex-col items-start gap-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
-            How It Works?
-          </h2>
-          <p className="text-gray-400 text-lg md:text-xl">
-            Access trading, rewards, and powerful tools in one seamless complete
-            ecosystem.
-          </p>
-          <button className="bg-blue-800 hover:bg-blue-900 text-white font-semibold px-6 py-3 rounded-md mt-4">
-            Download App Now
-          </button>
-
-          {/* Feature Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
-            {features.map((feature, idx) => (
-              <div
-                key={idx}
-                className="bg-gradient-to-br from-blue-900 to-blue-700 text-white p-6 rounded-lg shadow-lg flex flex-col gap-3"
-              >
-                <div className="flex items-center justify-start gap-3">
-                  {feature.icon}
-                  <h3 className="text-lg font-semibold">{feature.title}</h3>
+export default function HowItsWork({ data }) {
+    return (
+        <section className="bg-[#F9FAFF] py-12 md:py-20">
+            <Container>
+                {/* Header */}
+                <div className="text-center max-w-full mx-auto mb-10 md:mb-16">
+                    <Heading variant="sectionLight" className="mb-4">{data?.title}</Heading>
+                    <p className="text-gray-500 text-sm md:text-lg mb-6">{data?.desc}</p>
+                    <Button variant={data?.variant} size="lg" as="a" href="#download">{data?.btnText}</Button>
                 </div>
-                <p className="text-sm text-white/90">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Right Illustration */}
-        <div className="lg:w-1/2 w-full flex justify-center lg:justify-end">
-        <div className="relative w-full h-[500px]">
-          <Image
-            src="/ing1.webp"
-            alt="How It Works Illustration"
-            className="object-contain"
-            fill
-          />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+                {/* Grid: mobile: image on top, desktop: cards left / image right */}
+                <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-10 items-start">
+                    
+                    {/* Illustration column */}
+                    <div className="order-1 lg:order-2 flex justify-center lg:justify-end w-full">
+                        <div className="relative w-full h-[250px] md:h-[500px]">
+                            <Image
+                                src="/ing1.webp"
+                                alt="How It Works Illustration"
+                                className="object-contain"
+                                fill
+                            />
+                        </div>
+                    </div>
 
-export default HowItWorksSection;
+                    {/* Cards column */}
+                    <div className="order-2 lg:order-1 grid md:grid-cols-2 gap-6">
+                        {/* Left column: two stacked cards */}
+                        <div className="flex flex-col gap-6">
+                            <div
+                                className="bg-gradient-to-br from-[#293B93] to-[#0D153A] text-white p-4 rounded-[10px] border border-white/20 flex flex-col justify-center items-start w-full md:w-[240px] h-[180px] md:h-[220px]"
+                            >
+                                <Image src="/icon1.svg" width={32} height={32} alt="Download Icon" className="mb-4" />
+                                <h3 className="text-lg font-bold mb-2">Download the App</h3>
+                                <p className="text-sm text-white/90">Install GTC Go and log in securely.</p>
+                            </div>
+
+                            <div
+                                className="bg-gradient-to-br from-[#293B93] to-[#0D153A] text-white p-4 rounded-[10px] border border-white/20 flex flex-col justify-center items-start w-full md:w-[240px] h-[180px] md:h-[220px]"
+                            >
+                                <Image src="/icon2.svg" width={32} height={32} alt="Profile Icon" className="mb-4" />
+                                <h3 className="text-lg font-bold mb-2">Set Up Your Profile</h3>
+                                <p className="text-sm text-white/90">Link accounts and personalize your preferences.</p>
+                            </div>
+                        </div>
+
+                        {/* Right column: single tall card, vertically centered */}
+                        <div className="flex flex-col justify-center items-start">
+                            <div
+                                className="bg-gradient-to-br from-[#293B93] to-[#0D153A] text-white p-4 rounded-[10px] border border-white/20 flex flex-col justify-center items-start w-full md:w-[260px] h-[180px] md:h-[300px]"
+                            >
+                                <Image src="/icon3.svg" width={32} height={32} alt="Features Icon" className="mb-4" />
+                                <h3 className="text-lg font-bold mb-2">Start Exploring Features</h3>
+                                <p className="text-sm text-white/90">Trade, track rewards, and follow signals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </section>
+    );
+}
