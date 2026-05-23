@@ -24,7 +24,7 @@ export default function HowItsWork({ data }) {
                 </div>
 
                 {/* Two columns: steps + illustration */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center"> 
                     {/* Left: Step cards */}
                     <div className="space-y-4">
                         {data?.steps?.map((step, i) => (
