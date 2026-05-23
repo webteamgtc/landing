@@ -1,7 +1,7 @@
-export default function Landing2Header({className}) {
+export default function Landing2Header({ className }) {
     return (
         <div className={`flex relative items-start py-3 justify-between ${className}`}>
-            {/* logo */}
+            {/* Logo */}
             <div className="leading-none">
                 <img
                     src="/logo-white.svg"
@@ -11,30 +11,37 @@ export default function Landing2Header({className}) {
                 />
             </div>
 
-            {/* trustpilot */}
-            <div className="flex items-center gap-3 pt-[3px]">
-                <span className="text-[12px] font-medium text-white">Trustpilot</span>
+            {/* Google Rating - Now Clickable */}
+           <a
+  href="https://www.google.com/search?q=GTCFX+Google+review"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-3 pt-[3px] hover:opacity-80 transition-all group"
+>
+  <span className="text-[12px] font-medium text-white">
+    Google
+  </span>
 
-                <div className="flex items-center gap-[2px]">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                        <span
-                            key={i}
-                            className="flex h-[14px] w-[14px] items-center justify-center bg-[#C79A55]"
-                        >
-                            <StarIcon />
-                        </span>
-                    ))}
-                </div>
+  <div className="flex items-center gap-[2px]">
+    {[1, 2, 3, 4, 5].map((i) => (
+      <span
+        key={i}
+        className="flex h-[16px] w-[16px] items-center justify-center bg-[#C79A55]"
+      >
+        <StarIcon />
+      </span>
+    ))}
+  </div>
 
-                <span className="text-[12px] font-medium tracking-[0.2px] text-white">
-                    4.0 / 5
-                </span>
-            </div>
+  <span className="text-[12px] font-medium tracking-[0.2px] text-white">
+    4.4 / 5
+  </span>
+</a>
         </div>
-    )
+    );
 }
 
-/* icons */
+
 
 function StarIcon() {
     return (
