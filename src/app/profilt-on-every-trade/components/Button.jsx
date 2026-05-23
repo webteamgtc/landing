@@ -31,6 +31,8 @@ function buildGtcUserUrl(ref, code, searchParams) {
   if (ref) url.searchParams.set("ref", ref);
   const originUrl = searchParams.get("origin_url");
   if (originUrl) url.searchParams.set("origin_url", originUrl);
+  const deepLinkValue = searchParams.get("deep_link_value");
+  if (deepLinkValue) url.searchParams.set("deep_link_value", deepLinkValue);
   return url.toString();
 }
 
@@ -40,6 +42,8 @@ export function buildRegFormUrl(ref, code, searchParams) {
   if (code) params.set("code", code);
   const originUrl = searchParams?.get("origin_url");
   if (originUrl) params.set("origin_url", originUrl);
+  const deepLinkValue = searchParams?.get("deep_link_value");
+  if (deepLinkValue) params.set("deep_link_value", deepLinkValue);
   const qs = params.toString();
   return qs ? `/create-account?${qs}` : "/create-account";
 }
@@ -97,6 +101,7 @@ function ButtonWithParams({
   onClick,
   redirectToRegForm = !href,
   openGtcOnClick = false,
+  isApp = false,
   ...props
 }) {
   const router = useRouter();
@@ -106,12 +111,18 @@ function ButtonWithParams({
   const regFormUrl = buildRegFormUrl(ref, code, searchParams);
 
   const handleClick = (e) => {
+    if (isApp) {
+    window.open("https://qrcodes.pro/YW9ULf", "_blank", "noopener,noreferrer");
+      return;
+    }
     if (redirectToRegForm) {
       e.preventDefault?.();
       router.push(regFormUrl);
       onClick?.(e);
       return;
     }
+
+
 
     if (openGtcOnClick && (ref || code)) {
       const gtcUrl = buildGtcUserUrl(ref, code, searchParams);

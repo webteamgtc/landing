@@ -216,14 +216,15 @@ export default function Landing2Page() {
         btnText="Download App Now"
         variant="blue"
         headerItems={headerItems}
-        href="https://qrcodes.pro/YW9ULf"
+        isApp={true}
+
       />
-         <Landing2PrecisionPower data={cardSection} />
+         <Landing2PrecisionPower data={cardSection} isApp={true} />
 
       <Landing2WhyWins data={copySection} />
     
-        <HowItsWork data={howItsWork} />
-      <Landing2InstantAccess data={footerBanner} />
+        <HowItsWork data={howItsWork}  isApp={true}/>
+      <Landing2InstantAccess data={footerBanner} isApp={true} />
          <ReviewsSection />
       <Footer />
     </main>

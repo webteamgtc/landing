@@ -77,6 +77,7 @@ export default function RegFormPanel() {
   const [gtcCountries, setGtcCountries] = useState([]);
   const gtcCountriesRef = useRef([]);
   const urlPartnerCode = getPartnerCodeFromParams(searchParams);
+  const deepLinkValue = searchParams.get("deep_link_value");
   const partnerCodeReadOnly = hasCodeOrRefParam(searchParams);
 
   useEffect(() => {
@@ -93,6 +94,7 @@ export default function RegFormPanel() {
       area: "",
       otp: "",
       partnerCode: urlPartnerCode,
+      deep_link_value: deepLinkValue,
       terms: false,
     },
     enableReinitialize: true,
@@ -108,6 +110,7 @@ export default function RegFormPanel() {
         .required("Password is required"),
       otp: Yup.string().length(6, "OTP must be 6 digits").required("OTP is required"),
       partnerCode: Yup.string(),
+      deep_link_value: Yup.string(),
       terms: Yup.bool().oneOf([true], "Please accept the terms and conditions"),
     }),
     onSubmit: async (values) => {
@@ -130,6 +133,9 @@ export default function RegFormPanel() {
         firstname,
         ...(values.partnerCode?.trim()
           ? { ref: values.partnerCode.trim(), invite_code: values.partnerCode.trim() }
+          : {}),
+        ...(values?.deep_link_value?.trim()
+          ? { deep_link_value: values.deepLinkValue.trim() }
           : {}),
       };
 

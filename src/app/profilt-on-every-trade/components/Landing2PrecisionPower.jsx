@@ -63,7 +63,7 @@ const features = [
   },
 ];
 
-export default function Landing2PrecisionPower({data}) {
+export default function Landing2PrecisionPower({data,isApp=false}) {
   return (
     <section className="bg-white py-8 md:py-16">
       <Container>
@@ -75,7 +75,7 @@ export default function Landing2PrecisionPower({data}) {
            {data?.desc}
           </p>
           <div className="md:mt-8 mt-4">
-            <Button  size="md">
+            <Button  size="md" isApp={isApp}>
               {data?.btnText}
             </Button>
           </div>
