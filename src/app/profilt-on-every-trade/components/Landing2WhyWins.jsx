@@ -94,12 +94,12 @@ export default function CopyTradingFlexibleSection({ data }) {
                         />
                     </div>
 
-                    <div className="relative flex-shrink-0 w-full max-w-[330px] mx-auto">
+                    <div className="relative flex-shrink-0 w-full max-w-[350px] mx-auto">
                         <div className="relative">
                             <img
-                                src="/copy-trading.svg"
+                                src="/mobile.png"
                                 alt="GTC copy trading app"
-                                className="mx-auto max-w-[330px] h-[230px] md:h-auto w-full md:max-w-[410px]"
+                                className="mx-auto max-w-[330px] h-[230px] md:h-auto w-full md:max-w-[420px]"
                                 draggable={false}
                             />
                         </div>

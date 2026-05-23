@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function HowItsWork({ data, isApp = false }) {
     return (
-        <section className="bg-white py-6 md:py-14">
+        <section className="bg-white py-6 md:py-20">
             <Container>
                 {/* Header */}
                 <div className="text-center max-w-full mx-auto mb-6 md:mb-16">
@@ -24,7 +24,7 @@ export default function HowItsWork({ data, isApp = false }) {
                 </div>
 
                 {/* Two columns: steps + illustration */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center"> 
                     {/* Left: Step cards */}
                     <div className="space-y-4">
                         {data?.steps?.map((step, i) => (

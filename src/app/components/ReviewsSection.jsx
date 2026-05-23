@@ -16,7 +16,7 @@ const ALL_REVIEWS = [
   },
   {
     id: "2",
-    source: "Trustpilot",
+    source: "Google",
     date: "2026-01-27",
     name: "Aidan Baynes",
     rating: 5,
@@ -32,7 +32,7 @@ const ALL_REVIEWS = [
   },
   {
     id: "4",
-    source: "Trustpilot",
+    source: "Google",
     date: "2025-12-16",
     name: "Lonnie Allen",
     rating: 5,
@@ -48,7 +48,7 @@ const ALL_REVIEWS = [
   },
   {
     id: "8",
-    source: "Trustpilot",
+    source: "Google",
     date: "2026-01-26",
     name: "Michael Gallager",
     rating: 4.5,
@@ -64,7 +64,7 @@ const ALL_REVIEWS = [
   },
   {
     id: "7",
-    source: "Trustpilot",
+    source: "Google",
     date: "2023-05-22",
     name: "Naveed Mushtaq",
     rating: 5,
@@ -80,7 +80,7 @@ const ALL_REVIEWS = [
   },
   {
     id: "10",
-    source: "Trustpilot",
+    source: "Google",
     date: "2025-10-22",
     name: "Martina Ferrari",
     rating: 5,
@@ -96,7 +96,7 @@ const ALL_REVIEWS = [
   },
   {
     id: "12",
-    source: "Trustpilot",
+    source: "Google",
     date: "2026-01-06",
     name: "David Velasco",
     rating: 5,
@@ -110,31 +110,35 @@ const ALL_REVIEWS = [
 ];
 
 // ✅ Bottom ratings row (logos as images)
+// ✅ Updated with real review links
 const PLATFORM_RATINGS = [
   {
-    key: "tv",
+    key: "google",
     label: "Google",
-    rating: 4.5,
+    rating: 4.4,
     img: "/google.webp",
+    url: "https://www.google.com/search?q=GTCFX+Google+review",   // Your Google link
   },
   {
     key: "wiki",
     label: "WikiFX",
     rating: 9.23,
     img: "/wiki.webp",
+    url: "https://www.wikifx.com/en/dealer/8791637328.html",
   },
   {
     key: "invest",
     label: "Investing.com",
     rating: 4.1,
     img: "/invest.webp",
+    url: "https://www.investing.com/brokers/reviews/gtcfx/",
   },
   {
     key: "tp",
-    label: "Trustpilot",
-    rating: 4.0,
-    img: "/trust.webp",
-    accent: "green",
+    label: "MyFXBook",
+    rating: 4.7,
+    img: "/fxMobileLogo.png",
+    url: "https://www.myfxbook.com/reviews/brokers/gtcfx/3001022,1",
   },
 ];
 
@@ -195,7 +199,7 @@ function PlatformStars({ value }) {
 function SourceMark({ source }) {
   const map = {
     Google: { label: "Google", img: "/google.webp" },
-    Trustpilot: { label: "Trustpilot", img: "/trust.webp" },
+    Google: { label: "Google", img: "/google.webp" },
     TradingView: { label: "TradingView", img: "/trading.webp" },
     WikiFX: { label: "WikiFX", img: "/wiki.webp" },
     "Investing.com": { label: "Investing.com", img: "/invest.webp" },
@@ -316,45 +320,47 @@ export default function ReviewsSection() {
 
       <div className="mx-auto mt-8 max-w-6xl px-4">
         <p className="text-center text-xs text-gray-600 sm:text-sm">
-          Showing out of {totalReviews} reviews across TradingView, App Store, Google Play and Trustpilot.
+          Showing out of {totalReviews} reviews across TradingView, App Store, Google Play.
         </p>
 
         <div className="mt-10 rounded-2xl bg-gray-100 px-4 py-6 shadow-[0_6px_22px_rgba(0,0,0,0.06)] ring-1 ring-black/6">
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-0">
-            {PLATFORM_RATINGS.map((p, idx) => (
-              <div
-                key={p.key}
-                className={clsx(
-                  "flex items-center justify-center gap-4 px-3 py-2",
-                  idx !== 0 && "sm:border-l sm:border-gray-200"
-                )}
-              >
-                <div className="flex h-6 w-6 items-center justify-center rounded-xl bg-white ring-1 ring-black/5">
-                  <Image
-                    src={p.img}
-                    alt={p.label}
-                    width={25}
-                    height={25}
-                    className="object-contain rounded-full"
-                  />
-                </div>
-
-                <div className="min-w-[160px]">
-                  <div className="text-xs font-semibold text-gray-800">
-                    {p.label}
-                  </div>
-                  <div className="mt-1 flex items-center gap-3">
-                    <div className="text-sm font-bold text-gray-900">
-                      {p.rating.toFixed(1)}
-                    </div>
-                    <PlatformStars value={p.rating} accent={p.accent} />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+  <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-0">
+    {PLATFORM_RATINGS.map((p, idx) => (
+      <a
+        key={p.key}
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={clsx(
+          "flex items-center justify-center gap-4 px-3 py-2 hover:bg-white/70 rounded-xl transition-all group",
+          idx !== 0 && "sm:border-l sm:border-gray-200"
+        )}
+      >
+        <div className="flex h-6 w-6 items-center justify-center rounded-xl bg-white ring-1 ring-black/5 group-hover:scale-110 transition-transform">
+          <Image
+            src={p.img}
+            alt={p.label}
+            width={25}
+            height={25}
+            className="object-contain rounded-full"
+          />
         </div>
 
+        <div className="min-w-[160px]">
+          <div className="text-xs font-semibold text-gray-800 group-hover:text-primary transition-colors">
+            {p.label}
+          </div>
+          <div className="mt-1 flex items-center gap-3">
+            <div className="text-sm font-bold text-gray-900">
+              {p.rating.toFixed(1)}
+            </div>
+            <PlatformStars value={p.rating} />
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
         <p className="mt-4 text-center text-[11px] text-gray-500 sm:hidden">
           Tip: swipe left/right to see more reviews.
         </p>
