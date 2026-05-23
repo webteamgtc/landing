@@ -7,6 +7,7 @@ import Landing2Opportunities from "../profilt-on-every-trade/components/Landing2
 import Landing2PrecisionPower from "../profilt-on-every-trade/components/Landing2PrecisionPower";
 import Landing2WhyWins from "../profilt-on-every-trade/components/Landing2WhyWins";
 import ReviewsSection from "../components/ReviewsSection";
+import HowItWorksSection from "../components/HowItWorksSection";
 
 export const metadata = {
   title: "1 Million+ Traders. One Powerful App | GTC",
