@@ -216,6 +216,7 @@ export default function Landing2Page() {
         btnText="Download App Now"
         variant="blue"
         headerItems={headerItems}
+        href="https://qrcodes.pro/YW9ULf"
       />
          <Landing2PrecisionPower data={cardSection} />
 
