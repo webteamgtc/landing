@@ -3,6 +3,7 @@
 import React, { Suspense } from "react";
 import clsx from "clsx";
 import { useRouter, useSearchParams } from "next/navigation";
+import { buildOneLinkUrl } from "../../components/OneLinkButton";
 
 const GTC_USER_URL = "https://web.mygtc.app/user";
 
@@ -112,7 +113,8 @@ function ButtonWithParams({
 
   const handleClick = (e) => {
     if (isApp) {
-    window.open("https://qrcodes.pro/YW9ULf", "_blank", "noopener,noreferrer");
+      const oneLinkUrl = buildOneLinkUrl(searchParams);
+      window.open(oneLinkUrl, "_blank", "noopener,noreferrer");
       return;
     }
     if (redirectToRegForm) {

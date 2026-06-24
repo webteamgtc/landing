@@ -1,21 +1,29 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
+import { buildOneLinkUrl } from "./OneLinkButton";
 
-export default function GetStartedButton({ text = "Get Started" }) {
+export default function GetStartedButton({ text = "Get Started", isApp = false }) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const partnerId =
-    searchParams.get("partner_id") ||
-    searchParams.get("ib") ||
-    searchParams.get("ref");
+  const trackingKeys = ["partner_id", "ib", "ref", "code", "partner_code", "deep_link_value"];
 
   const handleClick = () => {
-    const registerUrl = partnerId
-      ? `/register?partner_id=${partnerId}`
-      : `/register`;
+    if (isApp) {
+      const oneLinkUrl = buildOneLinkUrl(searchParams);
+      window.open(oneLinkUrl, "_blank", "noopener,noreferrer");
+      return;
+    }
 
+    // Build registration URL preserving all tracking params
+    const params = new URLSearchParams();
+    for (const key of trackingKeys) {
+      const value = searchParams.get(key);
+      if (value) params.set(key, value);
+    }
+    const qs = params.toString();
+    const registerUrl = qs ? `/create-account?${qs}` : "/create-account";
     router.push(registerUrl);
   };
 
