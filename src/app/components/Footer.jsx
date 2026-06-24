@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CopyRight from "./CopyRight";
-import OneLinkButton from "./OneLinkButton";
+import { StoreBadge } from "./OneLinkButton";
 
 export default function Footer() {
   const socialLinks = [
@@ -59,7 +59,10 @@ export default function Footer() {
               </div>
             </div>
 
-          <OneLinkButton />
+          <div className="flex flex-wrap items-center gap-3">
+            <StoreBadge type="appstore" className="bg-[#111e62]" />
+            <StoreBadge type="googleplay" className="bg-[#111e62]" />
+          </div>
           </div>
 
           <div className="h-px w-full bg-white/20" />

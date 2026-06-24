@@ -2,7 +2,7 @@
 
 import React from "react";
 import Heading from "./Heading";
-import OneLinkButton from "../../components/OneLinkButton";
+import { StoreBadge } from "../../components/OneLinkButton";
 
 export default function CopyTradingFlexibleSection({ data }) {
     return (
@@ -19,8 +19,9 @@ export default function CopyTradingFlexibleSection({ data }) {
                 </Heading>
 
                  <p className="text-[16px] font-normal md:text-[17px] leading-[1.6] text-[#E2E2E2]">From advanced trading features to exclusive VIP benefits, enjoy a complete ecosystem built to support your trading goals.</p>
-   <div className=" flex flex-wrap items-center justify-center gap-2 sm:gap-[14px]">
-                    <OneLinkButton className="bg-gradient-to-r from-[#B68756] via-[#995F22] to-[#995F22] hover:from-[#263788] hover:via-[#101638] hover:to-[#263788] border border-white/50" />
+   <div className="flex flex-wrap items-center justify-center gap-3">
+                    <StoreBadge type="appstore" className="bg-gradient-to-r from-[#B68756] via-[#995F22] to-[#995F22] hover:from-[#263788] hover:via-[#101638] hover:to-[#263788] border border-white/50" />
+                    <StoreBadge type="googleplay" className="bg-gradient-to-r from-[#B68756] via-[#995F22] to-[#995F22] hover:from-[#263788] hover:via-[#101638] hover:to-[#263788] border border-white/50" />
                 </div>
                 </div>
           
