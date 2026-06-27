@@ -10,10 +10,10 @@ const nextConfig = {
         destination: 'https://www.gtcfx.com/',
         permanent: true,
         basePath: false,
-        missing: [
+        has: [
           {
             type: 'host',
-            value: 'promo.gtcfx.com',
+            value: '(?!promo\\.)((?:www\\.)?gtcfx\\.com)',
           },
         ],
       },

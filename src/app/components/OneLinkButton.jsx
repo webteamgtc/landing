@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
-const ONE_LINK_BASE = "https://mygtc.onelink.me/pZtr/zq7lbmtv";
+const ONE_LINK_BASE = "https://mygtc.onelink.me/pZtr";
 
 /**
  * Builds the OneLink URL, appending all relevant tracking
@@ -22,6 +22,12 @@ export function buildOneLinkUrl(searchParams) {
     "code",
     "partner_code",
     "deep_link_value",
+    "af_xp",
+    "pid",
+    "c",
+    "af_sub1",
+    "deep_link_sub1",
+    "af_dp",
   ];
 
   const params = new URLSearchParams();
@@ -31,6 +37,13 @@ export function buildOneLinkUrl(searchParams) {
     if (value) {
       params.set(key, value);
     }
+  }
+
+  // Fallback: if deep_link_sub1 / af_sub1 not in URL, use ref as partner code/IB
+  const ref = searchParams.get("ref");
+  if (ref) {
+    if (!params.has("deep_link_sub1")) params.set("deep_link_sub1", ref);
+    if (!params.has("af_sub1")) params.set("af_sub1", ref);
   }
 
   const qs = params.toString();

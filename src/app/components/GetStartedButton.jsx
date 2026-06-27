@@ -7,7 +7,20 @@ export default function GetStartedButton({ text = "Get Started", isApp = false }
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const trackingKeys = ["partner_id", "ib", "ref", "code", "partner_code", "deep_link_value"];
+  const trackingKeys = [
+    "partner_id",
+    "ib",
+    "ref",
+    "code",
+    "partner_code",
+    "deep_link_value",
+    "af_xp",
+    "pid",
+    "c",
+    "af_sub1",
+    "deep_link_sub1",
+    "af_dp",
+  ];
 
   const handleClick = () => {
     if (isApp) {

@@ -30,10 +30,11 @@ function buildGtcUserUrl(ref, code, searchParams) {
   url.searchParams.set("lang", "en");
   if (code) url.searchParams.set("code", code);
   if (ref) url.searchParams.set("ref", ref);
-  const originUrl = searchParams.get("origin_url");
-  if (originUrl) url.searchParams.set("origin_url", originUrl);
-  const deepLinkValue = searchParams.get("deep_link_value");
-  if (deepLinkValue) url.searchParams.set("deep_link_value", deepLinkValue);
+  const extraKeys = ["origin_url", "deep_link_value", "af_xp", "pid", "c", "af_sub1", "deep_link_sub1", "af_dp", "partner_id", "ib", "partner_code"];
+  for (const key of extraKeys) {
+    const val = searchParams.get(key);
+    if (val) url.searchParams.set(key, val);
+  }
   return url.toString();
 }
 
@@ -41,10 +42,11 @@ export function buildRegFormUrl(ref, code, searchParams) {
   const params = new URLSearchParams();
   if (ref) params.set("ref", ref);
   if (code) params.set("code", code);
-  const originUrl = searchParams?.get("origin_url");
-  if (originUrl) params.set("origin_url", originUrl);
-  const deepLinkValue = searchParams?.get("deep_link_value");
-  if (deepLinkValue) params.set("deep_link_value", deepLinkValue);
+  const extraKeys = ["origin_url", "deep_link_value", "af_xp", "pid", "c", "af_sub1", "deep_link_sub1", "af_dp", "partner_id", "ib", "partner_code"];
+  for (const key of extraKeys) {
+    const val = searchParams?.get(key);
+    if (val) params.set(key, val);
+  }
   const qs = params.toString();
   return qs ? `/create-account?${qs}` : "/create-account";
 }
